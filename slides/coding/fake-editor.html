@@ -556,6 +556,8 @@
 		const importDoc = document.currentScript.ownerDocument;
 		const templateElement = importDoc.querySelector("template");
 
+		const speed = 100; //ms
+
 		const codeMirrorConfig = {
 			lineNumbers: true
 		};
@@ -597,7 +599,7 @@
 			}
 
 			run() {
-				this.interval = setInterval(() => this.next(), 100);
+				this.interval = setInterval(() => this.next(), speed);
 			}
 
 			next() {
