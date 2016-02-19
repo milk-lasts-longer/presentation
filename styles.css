@@ -11,6 +11,11 @@ i {
   padding: 0 0.2em;
 }
 
+.title-slide {
+  background: #333;
+  color: rgba(255, 255, 255, 0.8) 
+}
+
 .flex {
     display: flex;
     justify-content: space-around;
