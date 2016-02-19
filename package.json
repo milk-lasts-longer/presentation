@@ -1,0 +1,23 @@
+{
+  "name": "modern-javascript-presentation",
+  "version": "1.0.0",
+  "description": "modern-javascript-presentation",
+  "main": "index.html",
+  "scripts": {
+    "start": "parallelshell \"npm run serve -s\" \"npm run watch -s\" \"npm run livereload -s\"",
+    "build": "jade index.jade",
+    "watch": "watch \"npm run build\" slides/",
+    "serve": "http-server",
+    "livereload": "live-reload --port 9091 index.html styles.css",
+    "publish": "git push -f origin master:gh-pages",
+    "prepublish": "npm run build"
+  },
+  "author": "Christian Kohler",
+  "devDependencies": {
+    "http-server": "^0.8.0",
+    "jade": "^1.11.0",
+    "live-reload": "^1.1.0",
+    "parallelshell": "^2.0.0",
+    "watch": "^0.16.0"
+  }
+}

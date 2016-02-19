@@ -1,0 +1,41 @@
+web-slide#component-ng
+	h1 Angular 1.x Component
+	pre(is="lang-markup").
+		&lt;li movie-tile imageurl="img/image1.png"&gt;&lt;/li&gt;
+	pre(is="lang-javascript").
+		angular
+			.module('movieApp', [])
+			.directive('movie-tile', function() {
+				return {
+					scope: {},
+					bindToController: {
+						imageurl: '@'
+					}
+					controller: function () { },
+					controllerAs: 'ctrl',
+					template: '&lt;img src="{{ctrl.imageurl}}" /&gt;'
+				};
+			});
+			
+			
+web-slide#component-ng
+	h1 ES6 Component
+	pre(is="lang-markup").
+		&lt;li is="movie-tile" imageurl="img/image1.png"&gt;&lt;/li&gt;
+	pre(is="lang-javascript").
+		class MovieTile extends HTMLLIElement {
+			createdCallback() {
+				this.render(this.attributes);
+			}
+			
+			render(attrs) {
+				this.innerHTML = `
+					&lt;img src="${attrs.imageurl.value}" /&gt;
+				`;
+			}
+		}
+			
+		export default document.registerElement('movie-tile', {
+			prototype: MovieTile.prototype,
+			extends: 'li'
+		});

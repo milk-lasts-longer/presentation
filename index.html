@@ -1,0 +1,398 @@
+<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.3/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/html-mocks/master/html-mocks.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/transitions.css" rel="stylesheet"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"><link href="styles.css" rel="stylesheet"><!-- Clippy init--><script src="https://code.jquery.com/jquery-1.11.3.min.js"></script><script src="//cdn.jsdelivr.net/clippy.js/1.0/clippy.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/clippy.js/1.0/clippy.min.css"></head><body><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide-title id="title-slide" data-transition="moveToLeft"><h1>Modern Javascript Development</h1><p>Next Generation Frameworks and Native Browser Support</p></web-slide-title><web-slide style="background-image:url('images/stefan.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Stefan Jäger</h1><div><i>Berne</i><br><i class="fa fa-twitter"></i>steivan<br><i class="fa fa-github"></i>stefanjaeger</div></web-slide><web-slide style="background-image:url('images/chris.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Christian Kohler</h1><div><i>Zurich</i><br><i class="fa fa-twitter"></i>KohlerChristian<br><i class="fa fa-github"></i>christiankohler</div></web-slide><web-slide style="background-image:url('images/kevin.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Kevin Denver</h1><div><i>London</i><br><i class="fa fa-twitter"></i>ToastShaman<br><i class="fa fa-github"></i>ToastShaman</div></web-slide><web-slide><img src="images/yetanotherjsframework.png" class="tweet"></web-slide><web-slide><h2>Vanilla SPA</h2><h2>The good, the bad and the ugly</h2><h2>Aurelia</h2></web-slide><web-slide><h1>Example Application</h1><p>Find a movie based on your travel time</p><mockup-browser><div style="position: relative; height: 250px; overflow-y: hidden;"><img src="images/popcorn-search.png"><img src="images/popcorn-result.png" data-enter="1" style="position: absolute; top: 0; left: 0;"></div></mockup-browser></web-slide><web-slide-title><h1>Vanilla Single Page Application</h1></web-slide-title><web-slide><h1>Let's start with a component</h1><img src="images/darkknight.jpg" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA"></web-slide><web-slide><h1>What do we want?</h1><pre data-enter="1" is="lang-markup">&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+</pre></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
+</pre></web-slide><web-slide style="background-image:url('images/beautiful-woman-complex.png')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;div&gt;
+    &lt;div class="hair-mesh"&gt;
+        &lt;span class="..."&gt;&lt;/span&gt;
+        &lt;div class="..."&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="eyes"&gt;
+        &lt;span class="..."&gt;&lt;/span&gt;
+        &lt;div class=""&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="lips"&gt;
+        &lt;span class="..."&gt;&lt;/span&gt;
+        &lt;div class=""&gt;	
+            &lt;div class="..."&gt;
+                &lt;span class="..."&gt;&lt;/span&gt;
+                &lt;div class=""&gt;
+                    ...
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">document.registerElement('beautiful-woman');</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;</pre><pre data-enter="2" is="lang-javascript">document.registerElement('beautiful-woman', {
+    prototype: Object.create(HTMLElement.prototype)
+});
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = 'click me!';
+    this.addEventListener('click', function(e) {
+        alert('Hello!');
+    });
+};
+document.registerElement('beautiful-woman', {
+    prototype: BeautifulWoman
+});</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;</pre><script>var BeautifulWoman = Object.create(HTMLElement.prototype);
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = "click me!";
+    this.addEventListener('click', function(e) {
+        alert('Hello!');
+    });
+};
+document.registerElement('beautiful-woman', {
+    prototype: BeautifulWoman
+});</script><p data-enter="1"><beautiful-woman></beautiful-woman></p></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>One More Thing</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman-outdoor.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Attributes</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = 'click me, type=' + this.attributes['type'].value;
+    this.addEventListener('click', function(e) {
+        alert('Hello, type=' + this.attributes['type'].value);
+    });
+};
+document.registerElement('beautiful-woman', {
+    prototype: BeautifulWoman
+});</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;</pre><script>var BeautifulWoman2 = Object.create(HTMLElement.prototype);
+BeautifulWoman2.createdCallback = function() {
+    this.innerHTML = 'click me, type=' + this.attributes['type'].value;
+    
+    this.addEventListener('click', function(e) {
+        alert('Hello, type=' + this.attributes['type'].value);
+    });
+};
+document.registerElement('beautiful-woman2', {
+    prototype: BeautifulWoman2
+});</script><p data-enter="1"><beautiful-woman2 type="outdoor"></beautiful-woman2></p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Ugly Templates</h1><pre is="lang-javascript">render(attrs) {
+	this.innerHTML = '&lt;figure class=&quot;movie__item__inner&quot;&gt;' + 
+		'&lt;div class=&quot;movie__item__inner__img&quot;&gt;'
+}</pre><p data-enter="1">Can we do better?</p></web-slide><!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings--><web-slide class="genius"><h1>Template Strings</h1></web-slide><web-slide class="align-left genius"><h1>Template Strings</h1><p>Template strings are string literals allowing embedded expressions. You can 
+use multi-line strings and string interpolation features with them.
+</p><pre is="lang-javascript">var a = 5, b = 10;
+console.log("Fifteen is " + (a + b) + " and\nnot " + (2 * a + b) + ".");
+// "Fifteen is 15 and
+// not 20."
+</pre><pre is="lang-javascript">var a = 5, b = 10;
+console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+// "Fifteen is 15 and
+// not 20."
+</pre></web-slide><web-slide class="align-left genius"><h1><b>Tagged</b> Template Strings</h1><p>A more advanced form of template strings are tagged template strings. 
+With them you are able to modify the output of template strings using a 
+function.
+</p><pre is="lang-javascript">var a = 5, b = 10;
+function tag(strings, values) {
+	console.log(strings[0]); // "Hello "
+	console.log(strings[1]); // " world "
+	console.log(values[0]);  // 15
+	console.log(values[1]);  // 20
+}
+
+tag`Hello ${ a + b } world ${ a * b}`; // "Bazinga!"</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Component and Object oriented syntax</h1><pre is="lang-javascript">"The Element interface represents an object of a Document"</pre><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">https://developer.mozilla.org/en-US/docs/Web/API/Element</a></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>ES 6 Classes</h1></web-slide><web-slide style="background-image:url('images/dog.jpg')" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.sayName = function() {
+    console.log('my name is: ' + this.name);
+};
+
+function SadDog(name, age) {
+  Animal.call(this, name);
+  this.age = age;
+}
+
+SadDog.prototype.myAge = function() {
+    console.log('woof! ' + this.age);
+};
+
+SadDog.prototype = Object.create(Animal.prototype);
+SadDog.prototype.constructor = SadDog;</pre><pre data-enter="2" is="lang-javascript">var tristan = new SadDog('Tristan', 2);
+tristan.sayName();  // 'my name is: Tristan' ?
+tristan.myAge();    // 'woof! 2' ?
+</pre></web-slide><web-slide style="background-image:url('images/dog.jpg')" class="fullscreen-image"><pre is="lang-javascript">function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.sayName = function() {
+    console.log('my name is: ' + this.name);
+};
+
+function SadDog(name, age) {
+  Animal.call(this, name);
+  this.age = age;
+}
+
+SadDog.prototype.myAge = function() {
+    console.log('woof! ' + this.age);
+};
+
+SadDog.prototype = Object.create(Animal.prototype);
+SadDog.prototype.constructor = SadDog;</pre><pre is="lang-javascript">var tristan = new SadDog('Tristan', 2);
+tristan.sayName();  // 'my name is: Tristan'
+tristan.myAge();    // Uncaught TypeError: tristan.myAge is not a function(…)
+</pre></web-slide><web-slide style="background-image:url('images/dog.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.sayName = function() {
+    console.log('my name is: ' + this.name);
+};
+
+function SadDog(name, age) {
+  Animal.call(this, name);
+  this.age = age;
+}
+
+SadDog.prototype = Object.create(Animal.prototype);
+SadDog.prototype.constructor = SadDog;
+
+SadDog.prototype.myAge = function() {
+    console.log('woof! ' + this.age);
+};</pre><pre data-enter="1" is="lang-javascript">var tristan = new SadDog('Tristan', 2);
+tristan.sayName();  // 'my name is: Tristan'
+tristan.myAge();    // 'woof! 2'
+</pre></web-slide><web-slide style="background-image:url('images/happy-dog.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    sayName() {
+        console.log('my name is: ' + this.name);
+    }
+}
+
+class HappyDog extends Animal {
+    constructor(name, age) {
+        super(name);
+        this.age = age;
+    }
+    myAge() {
+        console.log('woof! ' + this.age);
+    }
+}</pre><pre data-enter="2" is="lang-javascript">var daisy = new HappyDog('Daisy', 5);
+daisy.sayName();  // my name is: Daisy
+daisy.myAge();    // woof! 5
+</pre></web-slide><web-slide style="background-image:url('images/cat.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">class Animal {}
+
+class Cat extends Animal {          
+  static saySomething() {
+      console.log('miauw');
+  }
+}</pre><pre data-enter="1" is="lang-javascript">Cat.saySomething(); // miauw
+</pre></web-slide><web-slide style="background-image:url('images/cat.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">class Cat {   
+  constructor() {
+      this.cute = true;
+  }
+}</pre><pre data-enter="1" is="lang-javascript">// ES7 class properties
+class Cat {  
+  cute = true; 
+}       
+
+  </pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Movie View</h1><pre is="lang-markup" theme="dark">&lt;movie-view&gt;
+	&lt;ul&gt;
+		&lt;movie-tile&gt;&lt;/movie-tile&gt;
+		&lt;movie-tile&gt;&lt;/movie-tile&gt;
+		&lt;movie-tile&gt;&lt;/movie-tile&gt;
+	&lt;/ul&gt;
+&lt;/movie-view&gt;
+</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>How do we get the movie-tile into the movie-view?</h1></web-slide><!-- http://www.sitepoint.com/understanding-es6-modules/--><web-slide class="genius"><h1>Modules</h1></web-slide><web-slide class="align-left genius"><h1>Modules</h1><p>We have two important standards, namely CommonJS and Asynchronous 
+Module Definition (AMD) which let developers use modules in JavaScript. 
+But, the next JavaScript version, known as ECMAScript 6, brings modules 
+into JavaScript officially. 
+</p><pre is="lang-javascript">// utility.js
+function generateRandom() { return Math.random(); }
+function doSum(a, b) { return a + b; }
+
+export { generateRandom as random, doSum as sum }
+</pre><pre is="lang-javascript">// app.js
+import { random, sum } from 'utility';
+import 'utility' as utils; // alternatively</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Let's use real data. But how?</h1></web-slide><web-slide class="genius"><h1>Fetch API</h1></web-slide><web-slide class="genius"><h1>Disclaimer</h1><img src="images/fetch.png"><p>This is an experimental technology :-)</p></web-slide><web-slide class="align-left genius"><h1>Fetch API</h1><p><strong>It is a living standard!</strong> <br />
+http://fetch.spec.whatwg.org </p><p><strong>There is a polyfill!</strong> <br />
+https://github.com/github/fetch 
+</p></web-slide><web-slide style="background-image:url('images/old-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">function reqListener() {  
+    var data = JSON.parse(this.responseText);  
+    console.log(data);  
+}
+
+function reqError(err) {  
+    console.log('Fetch Error :-S', err);  
+}
+
+var oReq = new XMLHttpRequest();  
+oReq.onload = reqListener;  
+oReq.onerror = reqError;  
+oReq.open('get', './api/some.json', true);  
+oReq.send();
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">fetch('./api/some.json')
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+    console.log(data);
+})
+.catch(function(err) {
+    console.log('Fetch Error :-S', err);
+});
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">fetch('https://.../discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
+.then(function(response) {
+    ...</pre><pre data-enter="1" is="lang-javascript">{
+    "movies": [
+        {
+            "imdbID":"tt4733046",
+            "title":"The Weight of Chains 2",
+            "year":"2014",
+            ...
+        }, 
+        {
+            "imdbID":"tt4514084",
+            "title":"Far Too Far",
+            "year":"2015",
+            ...
+        }
+    ]
+}</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Function in function in function..</h1><pre is="lang-javascript">fetch(BASEURL + params).then(function(result) { return result.json(); })</pre><p data-enter="1">Is there a better way?</p></web-slide><web-slide class="genius"><h1>Arrow Functions =&gt;</h1></web-slide><web-slide class="align-left genius"><h1>Arrow Functions</h1><p>Arrows are a function shorthand using the =&gt; syntax.
+They support both expression and statement bodies.</p><pre is="lang-javascript" style="margin-top:-10px">// Before...
+var circumference = function (radius) {
+	return 2 * Math.PI * radius;
+}
+
+// Arrow with an expression
+var circumference = radius => 2 * Math.PI * radius;
+
+// Arrow with an expression (multiple arguments)
+var total = values.reduce((a, b) => a + b, 0);
+
+// Arrow with a statement body
+var fibonacci = n => {
+	if (n === 0 || n === 1) return n;
+	return fibonacci(n - 1) + fibonacci(n - 2);
+};
+</pre></web-slide><web-slide class="align-left genius"><h1>Arrow Functions</h1><p>Have you ever written this?</p><pre is="lang-javascript">...
+addAll: function addAll(pieces) {
+	var self = this;
+	pieces.forEach(pieces, function (piece) {
+		self.add(piece);
+	});
+}, ...</pre><p>Unfortunately, the inner function doesn’t inherit the outer function’s 
+this value. Inside the inner function, this will be window or undefined. 
+The temporary variable self serves to smuggle the outer value of this into 
+the inner function. 
+</p></web-slide><web-slide class="align-left genius"><h1>Arrow Functions</h1><p>Unlike functions, arrows share the same 
+lexical this as their surrounding code.</p><pre is="lang-javascript">var spongeBob = {
+	name = 'SpongeBob SquarePants',
+	friends: ['Patrick', 'Gary'],
+	printFriends() {
+		// this.name refers to spongeBob because of the arrow function
+		this.friends.forEach(f => console.log(this.name + ' knows ' + f));
+	}
+}</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide class="genius"><h1>var/let/const</h1></web-slide><web-slide class="align-left genius"><h1>Javascript Hoisting</h1><p>Simple, isn't it?</p></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" class="fullscreen-image align-left "><h1>Quiz-Time!</h1><pre data-enter="1" is="lang-javascript">var fn22 = 1;
+function gn22() {
+    if (!fn22) {
+        var fn22 = 2;
+    }
+    console.log(fn22);
+}
+gn22(); // <-- what's the console output? and why?
+</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image align-left "><h1>Quiz Solution</h1><pre is="lang-javascript">var fn22 = 1;
+function gn22() {
+    var fn22;     // will override the value to undefined
+    if (!fn22) {  // same as "isEmpty(fn22)"
+        fn22 = 2;
+    }
+    console.log(fn22);
+}
+gn22(); // will result in 2
+</pre></web-slide><web-slide class="align-left genius"><h1>let</h1><p>&#8680; <strong>let</strong> is block scoped. </p><p><strong>let</strong> scopes the variable to the nearest block, this includes <i>for</i> loops, <i>if</i> statements, and others.</p><pre is="lang-javascript">var fn22 = 1;
+function gn22() {
+    if (!fn22) {        // same as "isEmpty(fn22)"
+        let fn22 = 2;   // would create a new variable
+    }
+    console.log(fn22);
+}
+gn22(); // will result in 1
+</pre></web-slide><web-slide class="genius"><h1><strong>let</strong> is the new <strong>var</strong></h1></web-slide><web-slide class="align-left genius"><h1>const</h1><p><strong>const</strong> represents a constant reference to a value.</p><pre data-enter="1" is="lang-javascript">const baseUrl = 'http://...';
+baseUrl = 'http://...new url...'; 
+// Uncaught TypeError: Assignment to constant variable.</pre><pre data-enter="2" is="lang-javascript">const baseUrl = 'http://...';
+const baseUrl = 'http://...new url...'; 
+// Uncaught TypeError: Identifier 'baseUrl' has already been declared(…)</pre><pre data-enter="3" is="lang-javascript">const baseUrl = 'http://...';
+let baseUrl = 'http://...new url...'; 
+// Uncaught SyntaxError: Identifier 'baseUrl' has already been declared
+</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" class="fullscreen-image align-left "><h1>Quiz-Time 2!</h1><pre data-enter="1" is="lang-javascript">const howard = 'Howard';
+const names = ['Leonard'];
+names.push('Sheldon');
+names.push(howard);
+if (true) {
+    names.pop();
+}
+console.log(names);
+
+// what's the result? and why?        
+</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image align-left "><h1>Quiz-Time 2 Solution!</h1><pre is="lang-javascript">const howard = 'Howard';
+const names = ['Leonard'];
+names.push('Sheldon');
+names.push(howard);
+if (true) {
+    names.pop();
+}
+console.log(names);
+
+// ['Leonard', 'Sheldon']</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Search View</h1><p>Use Google Maps Api to get the duration</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Again! Function in function in function..</h1><pre is="lang-javascript">search(from, to, function(result) { ... })</pre><p data-enter="1">I guess there is a better way, right?</p></web-slide><!-- http://www.html5rocks.com/en/tutorials/async/deferred/--><!-- http://www.html5rocks.com/en/tutorials/es6/promises/--><!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise--><!-- http://www.slideshare.net/async_io/javascript-promisesq-library-17206726--><web-slide class="genius"><h1>Promises</h1><h2><i>A promise made is a debt unpaid.</i></h2></web-slide><web-slide class="align-left genius"><h1>Promises - Callback Hellss</h1><pre is="lang-javascript" style="margin-top:-15px">function readdir(source) {
+  fs.readdir(source, function(err, files) {
+    if (err) console.log('Error finding files: ' + err)
+		else {
+      files.forEach(function(filename, fileIndex) {
+        console.log(source + filename);
+        if (S(filename).endsWith('.jpeg')) {
+          gm(source + filename).size(function(err, values) {
+            if (err) console.log('Error identifying file size: ' + err)
+            else {
+              console.log(filename + ' : ' + values);
+              aspect = (values.width / values.height);
+              widths.forEach(function(width, widthIndex) {
+                height = Math.round(width / aspect);
+                console.log('resizing ' + filename + 'to ' + height + 'x' + height);
+                this.resize(width, height).write(destination + 'w' + width + '_' + filename, function(err) {
+                  if (err) console.log('Error writing file: ' + err);
+                })
+              }.bind(this));
+            }});}});}});}
+</pre></web-slide><web-slide class="align-left genius"><h1>Promises</h1><p>A Promise represents a proxy for a value not necessarily known when the 
+promise is created. It allows you to associate handlers to an asynchronous 
+action's eventual success value or failure reason.
+</p><pre is="lang-javascript">doMyLaundry().then(clothes => {
+	clothes.forEeach(piece => console.log('I washed a ' + piece));
+});
+
+// you can chain promises
+doMyLaundry().then(laundry => {
+	return putOutToDry(laundry);
+}).then(ironShirts).then(foldSocks).then(putAway);
+</pre></web-slide><web-slide class="align-left genius"><h1>Promises</h1><p>Although promise implementations follow a standardised behaviour, their 
+overall APIs differ. JavaScript promises are similar in API to RSVP.js. 
+Here's how you create a promise:</p><pre is="lang-javascript">var later = new Promise((resolve, reject) => {
+	if (/* everything worked */)
+		resolve("Stuff worked");
+	else 
+		reject(Error("Everything is failing!"));
+});
+
+// Promise.prototype.then(onFulfilled, onRejected)
+later.then(
+	s => console.log('I was resolved'),
+	s => console.log('I was rejected'));</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>App Component</h1><p>The app is also a component</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Router</h1><pre is="lang-javascript" theme="dark">router.configure(config => {
+	config.map([
+		{ route: "search",  component: SearchView },
+		{ route: "movies",  component: MoviesView }
+	]);
+});</pre><pre is="lang-javascript" theme="dark">router.navigate('movies', { duration: duration });
+</pre></web-slide><web-slide><h1>Router</h1><pre is="lang-markup" theme="dark">&lt;router-view&gt;&lt;/router-view&gt;</pre><pre is="lang-javascript" theme="dark">render(Component) {
+	this.empty();
+	this.appendChild(new Component());
+}
+</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Final App</h1><p>Demo Time</p></web-slide><web-slide-title style="background-image: url('images/goodbadugly.gif')" class="fullscreen-image"><h1><span data-enter="1">The good</span><span data-enter="2">, the bad</span><span data-enter="3"> and the ugly</span></h1></web-slide-title><web-slide class="align-left"><h1>The good ..</h1><h3>1. No dependencies</h3><p>No breaking changes, no wait time for bug fixes, no aging libraries</p><img src="images/dependency.jpg"></web-slide><web-slide class="align-left"><h1>The good ..	</h1><h3>2. No need to learn a library or a framework</h3><p>No learning curve, just pure javascript</p><img src="images/days-js.png" style="width: 80%"></web-slide><web-slide class="align-left"><h1>.. the bad ..</h1><h3>1. Difficult to test (No dependency injector, just ES6 Modules)</h3><pre is="lang-javascript">import myservice from './services/myservice'</pre><h3>2. Browser support for custom elements is bad (48%)</h3><img src="images/support-customelements.png" style="width: 100%"></web-slide><web-slide class="align-left"><h1>.. and the ugly.</h1><h3>You would end up writing your own library / framework</h3><p>The router for example</p><img src="images/ugly.jpg" style="width: 80%"></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item aurelia-flex-green"> Good</div><div data-enter="1" class="flex-item aurelia-flex-green"> Bad</div><div data-enter="2" class="flex-item aurelia-flex-pink">Frameworks</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Good</div><div class="flex-item aurelia-flex-green">Bad</div><div class="flex-item aurelia-flex-green">Ugly Parts</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia"><img src="images/aurelia-logo.png"></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-left"><h1>Aurelia</h1><h2>&#9679; ES6, ES7</h2><h2>&#9679; Web Components</h2><h2>&#9679; No external dependencies (except polyfills)</h2><h2>&#9679; Simple conventions</h2></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item aurelia-flex-pink">jspm.io</div><div data-enter="2" class="flex-item aurelia-flex-pink">bootstrapper</div><div data-enter="3" class="flex-item aurelia-flex-pink">aurelia-router</div><div data-enter="4" class="flex-item">&lt;template&gt;</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Vanilla SPA</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia"><h1>&lt;template&gt;</h1><p>HTMLTemplateElement</p><img src="images/template-specification.png"><img data-enter="1" src="images/template-browser.png"></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item">&lt;template&gt;</div><div data-enter="2" class="flex-item aurelia-flex-pink">@inject</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Search</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item">&lt;template&gt;</div><div data-enter="2" class="flex-item aurelia-flex-pink">@inject</div><div data-enter="3" class="flex-item aurelia-flex-pink">movie-tile</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Movie</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-left"><h1>Delta Vanilla SPA - Aurelia</h1><h2>&#9679; Dependency Injection with @inject</h2><h2>&#9679; Two Way Databinding with @bindable</h2><h2>&#9679; Aurelia Bootstrapper and Aurelia Router</h2></web-slide><web-slide class="align-left"><h1>Lessons Learned</h1><p><ul><li style="margin-bottom:10px" data-enter="1">If you don't need to support older browsers you can build a single 
+page application almost without any additional libraries.
+</li><li style="margin-bottom:10px" data-enter="2">Frameworks make it easier for you to write tests!	
+</li><li style="margin-bottom:10px" data-enter="3">Adopt ECMAScript 6 either natively or use transpilers such as Babel.
+</li><li style="margin-bottom:10px" data-enter="4">Building applications with next gen framework requires less framework specific code.
+</li></ul></p></web-slide><web-slide><h1>&laquo;Yet Another JS Framework &raquo;</h1><h2 data-enter="1">isn't so bad after all!</h2></web-slide></web-presentation><script src="clippy.js"></script><script src="//localhost:9091">// livereload</script></body></html>

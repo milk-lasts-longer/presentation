@@ -1,0 +1,117 @@
+############################################# TEIL 1 ##############################################################
+
+- system.config.js überschreiben und kurz drübergehen (transpiler, dependencies)
+ - "es7.decorators" = Annotations
+ - "es7.classProperties" = Class Properties (not yet in ES6)
+ - "map" = Dependencies (they are getting normalized by version) (can be done by jspm install x)
+ 
+ 
+index.html
+ - System.import("aurelia-bootstrapper");
+ - <app-root> weg, dafür aurelia-app im body
+
+app.js
+ - Transformation von Web-Component zu einer Aurelia Root Component
+ - 1.) Templating --> app.html erstellen, Tag <template> erstellen und innerHTML rein kopieren
+ - 2.) "export class App" instead "class AppRoot extends HTMLElement"
+   --> createdCallback -> constructor
+   --> document.registerElement weg
+ - 3.) 
+       import { inject } from 'aurelia-framework';
+	   import { Router } from 'aurelia-router';
+		+
+	   @inject(Router)
+	   on top + constructor(router)
+ - 4.) Router konfigurieren:
+	 router.configure(config => {
+		  config.map([
+			{route: ['', 'search'], moduleId: 'search/search', nav: true, title: 'Search Movies'},
+			{route: 'movies', moduleId: 'movies/movies', nav: true, title: 'Movies'}
+		  ]);
+		});
+- 5.) Demo: recheck HTML page auf localhost:8080 --> Banner sollte da sein, Fehler in der Console für "search-view"
+
+############################################# TEIL 2 ##############################################################
+
+- 6.) search.html erstellen, innerHtml nach <template> kopieren
+- 7.) imports anpassen, constructor anstelle createCallback, löschen registerElement, löschen render
+import { inject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+import GoogleApi from '../core/google-api';
+
+@inject(Router)
+export class Search {
+- 8.) im constructor this.router = router + 
+	addEventListener ersetzen durch submit.delegate="search()" auf form
+- 9.) 
+    let from = this.from; + value.bind="from" in HTML
+    let to = this.to; + value.bind="to" in HTML
+- 10.) Router Navigate:
+this.router.navigate(`/movies?duration=${duration}`);
+- 11.) Demo --> sollte Fehler für Movies View ergeben
+
+############################################# TEIL 3 ##############################################################
+
+- 12.) bevor weiter, kurzes Review, was wir gemacht haben. Objekt an Template gebunden. That's it.
+- 13.) now, we do the same again for movies. little bit harder. render/renderMovie
+	<template>
+		<require from="../movie-tile/movie-tile"></require>
+		<div class="container">
+			<ul class="movie">
+				<li class="movie__item" repeat.for="movie of data.movies">
+					<movie-tile imdb-url.bind="movie.imdbUrl" img-url.bind="movie.omdbImgUrl" title.bind="movie.title" runtime.bind="movie.runtimeOriginal" rating.bind="movie.imdbVotes">
+				</li>
+			</ul>
+		</div>
+	</template>
+
+- 14.) normal, aber 2x params.duration!!!
+import { inject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+import MovieApi from '../core/movie-api';
+
+@inject(Router)
+export class Movies {
+
+  constructor(router) {
+        this.router = router;
+  }
+  
+  activate(params, queryString, routeConfig) {
+     if(params.duration) {
+      MovieApi.searchByDuration(params.duration).then(data => this.data = data);
+    } else {
+      this.router.navigate('/search');
+    }
+  }
+}
+
+15.) movie-tile.html
+<template>
+    <figure class="movie__item__inner">
+        <div class="movie__item__inner__img">
+            <a href="${imdbUrl}">
+                <img src.bind="imageUrl" alt="" onerror="this.src='http://placehold.it/343x200'" />
+            </a>
+        </div>
+        <figcaption>
+            <h3><a href="${imdbUrl}">${title}</a>
+                </h3>
+            <p>Runtime ${runtime}
+                <br />IMDB Votes ${rating}</p>
+        </figcaption>
+    </figure>
+</template>
+
+16.) movie-tile.js
+import { bindable } from 'aurelia-framework';
+
+export class MovieTile {
+    // ES7
+    @bindable imdbUrl = '';
+    @bindable imageUrl = '';
+    @bindable title = '';
+    @bindable runtime = '';
+    @bindable rating = '';
+
+}

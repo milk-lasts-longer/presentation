@@ -1,0 +1,58 @@
+web-slide.genius
+	h1 Arrow Functions =&gt;
+
+web-slide(class="align-left genius")
+	h1 Arrow Functions
+	p.
+		Arrows are a function shorthand using the =&gt; syntax.
+		They support both expression and statement bodies.
+	pre(is="lang-javascript", style="margin-top:-10px").
+		// Before...
+		var circumference = function (radius) {
+			return 2 * Math.PI * radius;
+		}
+		
+		// Arrow with an expression
+		var circumference = radius => 2 * Math.PI * radius;
+		
+		// Arrow with an expression (multiple arguments)
+		var total = values.reduce((a, b) => a + b, 0);
+		
+		// Arrow with a statement body
+		var fibonacci = n => {
+			if (n === 0 || n === 1) return n;
+			return fibonacci(n - 1) + fibonacci(n - 2);
+		};
+
+web-slide(class="align-left genius")
+			h1 Arrow Functions
+			p.
+				Have you ever written this?
+			pre(is="lang-javascript").
+					...
+					addAll: function addAll(pieces) {
+						var self = this;
+						pieces.forEach(pieces, function (piece) {
+							self.add(piece);
+						});
+					}, ...
+			p.
+				Unfortunately, the inner function doesn’t inherit the outer function’s 
+				this value. Inside the inner function, this will be window or undefined. 
+				The temporary variable self serves to smuggle the outer value of this into 
+				the inner function. 
+
+web-slide(class="align-left genius")
+	h1 Arrow Functions
+	p.
+		Unlike functions, arrows share the same 
+		lexical this as their surrounding code.
+	pre(is="lang-javascript").
+		var spongeBob = {
+			name = 'SpongeBob SquarePants',
+			friends: ['Patrick', 'Gary'],
+			printFriends() {
+				// this.name refers to spongeBob because of the arrow function
+				this.friends.forEach(f => console.log(this.name + ' knows ' + f));
+			}
+		}
