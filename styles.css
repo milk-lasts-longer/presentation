@@ -38,8 +38,8 @@ i {
     background-color: #7FE5A6;
 }
 
-@media print { 
-  .fullscreen-image { 
+@media print {
+  .fullscreen-image {
     background-attachment: initial !important;
     background-size: 500px 500px;
   }
@@ -48,8 +48,8 @@ i {
 .fullscreen-image {
 	background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
-	background-size: cover;	
+  background-position: center;
+	background-size: cover;
 }
 
 .align-left::shadow div#content {
@@ -76,10 +76,6 @@ mockup-browser {
 
 mockup-browser img {
   width: 100%;
-}
-
-.clippy, .clippy-balloon {
-  transform: scale3d(2, 2, 1);
 }
 
 /* slide styles */
