@@ -9,29 +9,8 @@ web-slide
 	h1 What do we want?
 	pre(data-enter="1" is="lang-markup").
 		&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
-	
+
 include ./ex-customelement.jade
-include ../coding-time.jade
-
-web-slide
-	h1 Ugly Templates
-	pre(is="lang-javascript").
-		render(attrs) {
-			this.innerHTML = '&lt;figure class=&quot;movie__item__inner&quot;&gt;' + 
-				'&lt;div class=&quot;movie__item__inner__img&quot;&gt;'
-		}
-	p(data-enter="1") Can we do better?
-
-include ./ex-es6-templatestring.jade
-include ../coding-time.jade
-
-web-slide
-	h1 Component and Object oriented syntax
-	pre(is="lang-javascript").
-		"The Element interface represents an object of a Document"
-	a(href="https://developer.mozilla.org/en-US/docs/Web/API/Element") https://developer.mozilla.org/en-US/docs/Web/API/Element
-
-include ./ex-es6-class.jade
 include ../coding-time.jade
 
 web-slide
@@ -55,38 +34,15 @@ include ../coding-time.jade
 
 web-slide
 	h1 Let's use real data. But how?
-	
+
 
 include ./ex-fetch.jade
-include ../coding-time.jade
-
-web-slide
-	h1 Function in function in function..
-	pre(is="lang-javascript").
-		fetch(BASEURL + params).then(function(result) { return result.json(); })
-	p(data-enter="1") Is there a better way?
-	
-include ./ex-es6-arrowfunc.jade
-
-include ../coding-time.jade
-
-include ./ex-es6-letconst.jade
 include ../coding-time.jade
 
 
 web-slide
 	h1 Search View
 	p Use Google Maps Api to get the duration
-
-include ../coding-time.jade
-
-web-slide
-	h1 Again! Function in function in function..
-	pre(is="lang-javascript").
-		search(from, to, function(result) { ... })
-	p(data-enter="1") I guess there is a better way, right?
-
-include ./ex-es6-promises.jade
 
 include ../coding-time.jade
 
