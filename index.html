@@ -1,5 +1,5 @@
-<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.3/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/html-mocks/master/html-mocks.html" rel="import"><link href="./slides/coding/fake-editor.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/transitions.css" rel="stylesheet"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"><link href="styles.css" rel="stylesheet"></head><body><script src="./slides/coding/cm-history.js"></script><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide><h1>yep234</h1><fake-editor history="cm1"></fake-editor></web-slide><web-slide-title id="title-slide" data-transition="moveToLeft" class="title-slide"><img src="images/milk-lasts-longer.png" class="tweet"></web-slide-title><web-slide style="background-image:url('images/stefan.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Stefan Jäger</h1><div><i>Berne</i><br><i class="fa fa-twitter"></i>steivan<br><i class="fa fa-github"></i>stefanjaeger</div></web-slide><web-slide style="background-image:url('images/chris.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Christian Kohler</h1><div><i>Zurich</i><br><i class="fa fa-twitter"></i>KohlerChristian<br><i class="fa fa-github"></i>christiankohler</div></web-slide><web-slide><h2>Vanilla SPA</h2><h2>The good, the bad and the ugly</h2><h2>Aurelia</h2></web-slide><web-slide><h1>Example Application</h1><p>Find a movie based on your travel time</p><mockup-browser><div style="position: relative; height: 250px; overflow-y: hidden;"><img src="images/popcorn-search.png"><img src="images/popcorn-result.png" data-enter="1" style="position: absolute; top: 0; left: 0;"></div></mockup-browser></web-slide><web-slide-title><h1>Vanilla Single Page Application</h1></web-slide-title><web-slide><h1>Let's start with a component</h1><img src="images/darkknight.jpg" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA"></web-slide><web-slide><h1>What do we want?</h1><pre data-enter="1" is="lang-markup">&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
-</pre></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
+<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.3/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/html-mocks/master/html-mocks.html" rel="import"><link href="./slides/coding/fake-editor.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/transitions.css" rel="stylesheet"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"><link href="styles.css" rel="stylesheet"></head><body><script src="./slides/coding/cm-history.js"></script><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide-title id="title-slide" data-transition="moveToLeft" class="title-slide"><img src="images/milk-lasts-longer.png" class="tweet"></web-slide-title><web-slide><h2>do you know this problem?</h2><h2>raining framework icons</h2></web-slide><web-slide style="background-image:url('images/stefan.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Stefan Jäger</h1><div><i>Berne</i><br><i class="fa fa-twitter"></i>steivan<br><i class="fa fa-github"></i>stefanjaeger</div></web-slide><web-slide style="background-image:url('images/chris.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Christian Kohler</h1><div><i>Zurich</i><br><i class="fa fa-twitter"></i>KohlerChristian<br><i class="fa fa-github"></i>christiankohler</div></web-slide><web-slide><h2>we're tired of new things all the time</h2><h2>let us write a vanilla javascript spa</h2><h2>follow our journey!</h2></web-slide><web-slide><h1>let's build an application</h1><mockup-browser><div style="position: relative; height: 250px; overflow-y: hidden;"><iframe src="http://localhost:8081/#/search/" style="width: 100%; height: 100%;transform: scale(0.25);transform-origin: 0 0;" frameBorder="0"></iframe></div></mockup-browser></web-slide><web-slide><h1>Let's start with a component</h1><img src="images/darkknight.jpg" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA"></web-slide><web-slide><h1>What do we want?</h1><pre data-enter="1" is="lang-markup">&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+</pre></web-slide><web-slide><h1>we can't use</h1><h2>Angular Directive</h2><h2>React Components</h2></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
 </pre></web-slide><web-slide style="background-image:url('images/beautiful-woman-complex.png')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;div&gt;
     &lt;div class="hair-mesh"&gt;
         &lt;span class="..."&gt;&lt;/span&gt;
@@ -15,7 +15,7 @@
     &lt;/div&gt;
     &lt;div class="lips"&gt;
         &lt;span class="..."&gt;&lt;/span&gt;
-        &lt;div class=""&gt;	
+        &lt;div class=""&gt;
             &lt;div class="..."&gt;
                 &lt;span class="..."&gt;&lt;/span&gt;
                 &lt;div class=""&gt;
@@ -25,16 +25,24 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">document.registerElement('beautiful-woman');</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;</pre><pre data-enter="2" is="lang-javascript">document.registerElement('beautiful-woman', {
-    prototype: Object.create(HTMLElement.prototype)
-});
 </pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+
 BeautifulWoman.createdCallback = function() {
     this.innerHTML = 'click me!';
     this.addEventListener('click', function(e) {
         alert('Hello!');
     });
 };
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = 'click me!';
+    this.addEventListener('click', function(e) {
+        alert('Hello!');
+    });
+};
+
 document.registerElement('beautiful-woman', {
     prototype: BeautifulWoman
 });</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;</pre><script>var BeautifulWoman = Object.create(HTMLElement.prototype);
@@ -46,27 +54,7 @@ BeautifulWoman.createdCallback = function() {
 };
 document.registerElement('beautiful-woman', {
     prototype: BeautifulWoman
-});</script><p data-enter="1"><beautiful-woman></beautiful-woman></p></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>One More Thing</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman-outdoor.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
-</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Attributes</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
-BeautifulWoman.createdCallback = function() {
-    this.innerHTML = 'click me, type=' + this.attributes['type'].value;
-    this.addEventListener('click', function(e) {
-        alert('Hello, type=' + this.attributes['type'].value);
-    });
-};
-document.registerElement('beautiful-woman', {
-    prototype: BeautifulWoman
-});</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;</pre><script>var BeautifulWoman2 = Object.create(HTMLElement.prototype);
-BeautifulWoman2.createdCallback = function() {
-    this.innerHTML = 'click me, type=' + this.attributes['type'].value;
-    
-    this.addEventListener('click', function(e) {
-        alert('Hello, type=' + this.attributes['type'].value);
-    });
-};
-document.registerElement('beautiful-woman2', {
-    prototype: BeautifulWoman2
-});</script><p data-enter="1"><beautiful-woman2 type="outdoor"></beautiful-woman2></p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Movie View</h1><pre is="lang-markup" theme="dark">&lt;movie-view&gt;
+});</script><p data-enter="1"><beautiful-woman></beautiful-woman></p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1></h1><fake-editor history="movieTile" tabs="movie-tile.js" tab-active="0"></fake-editor></web-slide><web-slide><h1>Movie View</h1><pre is="lang-markup" theme="dark">&lt;movie-view&gt;
 	&lt;ul&gt;
 		&lt;movie-tile&gt;&lt;/movie-tile&gt;
 		&lt;movie-tile&gt;&lt;/movie-tile&gt;

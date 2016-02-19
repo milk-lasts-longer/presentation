@@ -22,7 +22,7 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/beaut
             &lt;/div&gt;
             &lt;div class="lips"&gt;
                 &lt;span class="..."&gt;&lt;/span&gt;
-                &lt;div class=""&gt;	
+                &lt;div class=""&gt;
                     &lt;div class="..."&gt;
                         &lt;span class="..."&gt;&lt;/span&gt;
                         &lt;div class=""&gt;
@@ -36,24 +36,32 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/beaut
 web-slide(class="align-left genius")
     h2 Custom Element Creation
     pre(is="lang-javascript").
-        document.registerElement('beautiful-woman');
-    pre(data-enter="1" is="lang-markup").
-        &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
-    pre(data-enter="2" is="lang-javascript").
-        document.registerElement('beautiful-woman', {
-            prototype: Object.create(HTMLElement.prototype)
-        });
+        var BeautifulWoman = Object.create(HTMLElement.prototype);
+
+web-slide(class="align-left genius")
+            h2 Custom Element Creation
+            pre(is="lang-javascript").
+                var BeautifulWoman = Object.create(HTMLElement.prototype);
+
+                BeautifulWoman.createdCallback = function() {
+                    this.innerHTML = 'click me!';
+                    this.addEventListener('click', function(e) {
+                        alert('Hello!');
+                    });
+                };
 
 web-slide(class="align-left genius")
     h2 Custom Element Creation
     pre(is="lang-javascript").
         var BeautifulWoman = Object.create(HTMLElement.prototype);
+
         BeautifulWoman.createdCallback = function() {
             this.innerHTML = 'click me!';
             this.addEventListener('click', function(e) {
                 alert('Hello!');
             });
         };
+
         document.registerElement('beautiful-woman', {
             prototype: BeautifulWoman
         });
@@ -72,40 +80,3 @@ web-slide(class="align-left genius")
         });
     p(data-enter="1")
         beautiful-woman
-
-web-slide(class="genius", data-transition="moveToLeft")
-    h1 One More Thing
-
-web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman-outdoor.jpg')" }, data-transition="moveToLeft")
-    pre(data-enter="1" is="lang-markup").
-        &lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
-
-web-slide(class="align-left genius")
-    h2 Custom Element Attributes
-    pre(is="lang-javascript").
-        var BeautifulWoman = Object.create(HTMLElement.prototype);
-        BeautifulWoman.createdCallback = function() {
-            this.innerHTML = 'click me, type=' + this.attributes['type'].value;
-            this.addEventListener('click', function(e) {
-                alert('Hello, type=' + this.attributes['type'].value);
-            });
-        };
-        document.registerElement('beautiful-woman', {
-            prototype: BeautifulWoman
-        });
-    pre(data-enter="1" is="lang-markup").
-        &lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
-    script.
-        var BeautifulWoman2 = Object.create(HTMLElement.prototype);
-        BeautifulWoman2.createdCallback = function() {
-            this.innerHTML = 'click me, type=' + this.attributes['type'].value;
-            
-            this.addEventListener('click', function(e) {
-                alert('Hello, type=' + this.attributes['type'].value);
-            });
-        };
-        document.registerElement('beautiful-woman2', {
-            prototype: BeautifulWoman2
-        });
-    p(data-enter="1")
-        beautiful-woman2(type="outdoor")
