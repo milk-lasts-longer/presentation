@@ -1,4 +1,6 @@
-# modern-javascript-presentation
+# Milk Lasts Longer Presentation 
+
+http://milk-lasts-longer.github.io/presentation/
 
 # Usage
 Install jade and live reload
