@@ -1,7 +1,7 @@
 {
-  "name": "modern-javascript-presentation",
+  "name": "milk-lasts-longer-presentation",
   "version": "1.0.0",
-  "description": "modern-javascript-presentation",
+  "description": "milk-lasts-longer-presentation",
   "main": "index.html",
   "scripts": {
     "start": "parallelshell \"npm run serve -s\" \"npm run watch -s\" \"npm run livereload -s\"",
@@ -12,7 +12,7 @@
     "publish": "git push -f origin master:gh-pages",
     "prepublish": "npm run build"
   },
-  "author": "Christian Kohler",
+  "author": "Christian Kohler & Stefan Jaeger",
   "devDependencies": {
     "http-server": "^0.8.0",
     "jade": "^1.11.0",
