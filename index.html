@@ -1,1 +1,146 @@
-<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.3/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/html-mocks/master/html-mocks.html" rel="import"><link href="./slides/coding/fake-editor.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/transitions.css" rel="stylesheet"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"><link href="styles.css" rel="stylesheet"></head><body><script src="./slides/coding/cm-history.js"></script><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide><h1>yep234</h1><fake-editor history="cm1"></fake-editor></web-slide><!-- include ./slides/title-slide.jade--><!-- include ./slides/about-us.jade--><!-- include ./slides/intro.jade--><!-- include ./slides/nolibs/nolibs.jade--><!-- include ./slides/aurelia.jade--><!-- include ./slides/outro.jade--></web-presentation><script src="//localhost:9091">// livereload</script></body></html>
+<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.3/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/html-mocks/master/html-mocks.html" rel="import"><link href="./slides/coding/fake-editor.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/transitions.css" rel="stylesheet"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"><link href="styles.css" rel="stylesheet"></head><body><script src="./slides/coding/cm-history.js"></script><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide><h1>yep234</h1><fake-editor history="cm1"></fake-editor></web-slide><web-slide-title id="title-slide" data-transition="moveToLeft" class="title-slide"><img src="images/milk-lasts-longer.png" class="tweet"></web-slide-title><web-slide style="background-image:url('images/stefan.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Stefan Jäger</h1><div><i>Berne</i><br><i class="fa fa-twitter"></i>steivan<br><i class="fa fa-github"></i>stefanjaeger</div></web-slide><web-slide style="background-image:url('images/chris.jpg');color:#3C3C3C" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Christian Kohler</h1><div><i>Zurich</i><br><i class="fa fa-twitter"></i>KohlerChristian<br><i class="fa fa-github"></i>christiankohler</div></web-slide><web-slide><h2>Vanilla SPA</h2><h2>The good, the bad and the ugly</h2><h2>Aurelia</h2></web-slide><web-slide><h1>Example Application</h1><p>Find a movie based on your travel time</p><mockup-browser><div style="position: relative; height: 250px; overflow-y: hidden;"><img src="images/popcorn-search.png"><img src="images/popcorn-result.png" data-enter="1" style="position: absolute; top: 0; left: 0;"></div></mockup-browser></web-slide><web-slide-title><h1>Vanilla Single Page Application</h1></web-slide-title><web-slide><h1>Let's start with a component</h1><img src="images/darkknight.jpg" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA"></web-slide><web-slide><h1>What do we want?</h1><pre data-enter="1" is="lang-markup">&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+</pre></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
+</pre></web-slide><web-slide style="background-image:url('images/beautiful-woman-complex.png')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;div&gt;
+    &lt;div class="hair-mesh"&gt;
+        &lt;span class="..."&gt;&lt;/span&gt;
+        &lt;div class="..."&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="eyes"&gt;
+        &lt;span class="..."&gt;&lt;/span&gt;
+        &lt;div class=""&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="lips"&gt;
+        &lt;span class="..."&gt;&lt;/span&gt;
+        &lt;div class=""&gt;	
+            &lt;div class="..."&gt;
+                &lt;span class="..."&gt;&lt;/span&gt;
+                &lt;div class=""&gt;
+                    ...
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">document.registerElement('beautiful-woman');</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;</pre><pre data-enter="2" is="lang-javascript">document.registerElement('beautiful-woman', {
+    prototype: Object.create(HTMLElement.prototype)
+});
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Creation</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = 'click me!';
+    this.addEventListener('click', function(e) {
+        alert('Hello!');
+    });
+};
+document.registerElement('beautiful-woman', {
+    prototype: BeautifulWoman
+});</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;</pre><script>var BeautifulWoman = Object.create(HTMLElement.prototype);
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = "click me!";
+    this.addEventListener('click', function(e) {
+        alert('Hello!');
+    });
+};
+document.registerElement('beautiful-woman', {
+    prototype: BeautifulWoman
+});</script><p data-enter="1"><beautiful-woman></beautiful-woman></p></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>One More Thing</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman-outdoor.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
+</pre></web-slide><web-slide class="align-left genius"><h2>Custom Element Attributes</h2><pre is="lang-javascript">var BeautifulWoman = Object.create(HTMLElement.prototype);
+BeautifulWoman.createdCallback = function() {
+    this.innerHTML = 'click me, type=' + this.attributes['type'].value;
+    this.addEventListener('click', function(e) {
+        alert('Hello, type=' + this.attributes['type'].value);
+    });
+};
+document.registerElement('beautiful-woman', {
+    prototype: BeautifulWoman
+});</pre><pre data-enter="1" is="lang-markup">&lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;</pre><script>var BeautifulWoman2 = Object.create(HTMLElement.prototype);
+BeautifulWoman2.createdCallback = function() {
+    this.innerHTML = 'click me, type=' + this.attributes['type'].value;
+    
+    this.addEventListener('click', function(e) {
+        alert('Hello, type=' + this.attributes['type'].value);
+    });
+};
+document.registerElement('beautiful-woman2', {
+    prototype: BeautifulWoman2
+});</script><p data-enter="1"><beautiful-woman2 type="outdoor"></beautiful-woman2></p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Movie View</h1><pre is="lang-markup" theme="dark">&lt;movie-view&gt;
+	&lt;ul&gt;
+		&lt;movie-tile&gt;&lt;/movie-tile&gt;
+		&lt;movie-tile&gt;&lt;/movie-tile&gt;
+		&lt;movie-tile&gt;&lt;/movie-tile&gt;
+	&lt;/ul&gt;
+&lt;/movie-view&gt;
+</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>How do we get the movie-tile into the movie-view?</h1></web-slide><!-- http://www.sitepoint.com/understanding-es6-modules/--><web-slide class="genius"><h1>Modules</h1></web-slide><web-slide class="align-left genius"><h1>Modules</h1><p>We have two important standards, namely CommonJS and Asynchronous 
+Module Definition (AMD) which let developers use modules in JavaScript. 
+But, the next JavaScript version, known as ECMAScript 6, brings modules 
+into JavaScript officially. 
+</p><pre is="lang-javascript">// utility.js
+function generateRandom() { return Math.random(); }
+function doSum(a, b) { return a + b; }
+
+export { generateRandom as random, doSum as sum }
+</pre><pre is="lang-javascript">// app.js
+import { random, sum } from 'utility';
+import 'utility' as utils; // alternatively</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Let's use real data. But how?</h1></web-slide><web-slide class="genius"><h1>Fetch API</h1></web-slide><web-slide class="genius"><h1>Disclaimer</h1><img src="images/fetch.png"><p>This is an experimental technology :-)</p></web-slide><web-slide class="align-left genius"><h1>Fetch API</h1><p><strong>It is a living standard!</strong> <br />
+http://fetch.spec.whatwg.org </p><p><strong>There is a polyfill!</strong> <br />
+https://github.com/github/fetch 
+</p></web-slide><web-slide style="background-image:url('images/old-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">function reqListener() {  
+    var data = JSON.parse(this.responseText);  
+    console.log(data);  
+}
+
+function reqError(err) {  
+    console.log('Fetch Error :-S', err);  
+}
+
+var oReq = new XMLHttpRequest();  
+oReq.onload = reqListener;  
+oReq.onerror = reqError;  
+oReq.open('get', './api/some.json', true);  
+oReq.send();
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">fetch('./api/some.json')
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+    console.log(data);
+})
+.catch(function(err) {
+    console.log('Fetch Error :-S', err);
+});
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">fetch('https://.../discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
+.then(function(response) {
+    ...</pre><pre data-enter="1" is="lang-javascript">{
+    "movies": [
+        {
+            "imdbID":"tt4733046",
+            "title":"The Weight of Chains 2",
+            "year":"2014",
+            ...
+        }, 
+        {
+            "imdbID":"tt4514084",
+            "title":"Far Too Far",
+            "year":"2015",
+            ...
+        }
+    ]
+}</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Search View</h1><p>Use Google Maps Api to get the duration</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>App Component</h1><p>The app is also a component</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Router</h1><pre is="lang-javascript" theme="dark">router.configure(config => {
+	config.map([
+		{ route: "search",  component: SearchView },
+		{ route: "movies",  component: MoviesView }
+	]);
+});</pre><pre is="lang-javascript" theme="dark">router.navigate('movies', { duration: duration });
+</pre></web-slide><web-slide><h1>Router</h1><pre is="lang-markup" theme="dark">&lt;router-view&gt;&lt;/router-view&gt;</pre><pre is="lang-javascript" theme="dark">render(Component) {
+	this.empty();
+	this.appendChild(new Component());
+}
+</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Final App</h1><p>Demo Time</p></web-slide><web-slide-title style="background-image: url('images/goodbadugly.gif')" class="fullscreen-image"><h1><span data-enter="1">The good</span><span data-enter="2">, the bad</span><span data-enter="3"> and the ugly</span></h1></web-slide-title><web-slide class="align-left"><h1>The good ..</h1><h3>1. No dependencies</h3><p>No breaking changes, no wait time for bug fixes, no aging libraries</p><img src="images/dependency.jpg"></web-slide><web-slide class="align-left"><h1>The good ..	</h1><h3>2. No need to learn a library or a framework</h3><p>No learning curve, just pure javascript</p><img src="images/days-js.png" style="width: 80%"></web-slide><web-slide class="align-left"><h1>.. the bad ..</h1><h3>1. Difficult to test (No dependency injector, just ES6 Modules)</h3><pre is="lang-javascript">import myservice from './services/myservice'</pre><h3>2. Browser support for custom elements is bad (48%)</h3><img src="images/support-customelements.png" style="width: 100%"></web-slide><web-slide class="align-left"><h1>.. and the ugly.</h1><h3>You would end up writing your own library / framework</h3><p>The router for example</p><img src="images/ugly.jpg" style="width: 80%"></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item aurelia-flex-green"> Good</div><div data-enter="1" class="flex-item aurelia-flex-green"> Bad</div><div data-enter="2" class="flex-item aurelia-flex-pink">Frameworks</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Good</div><div class="flex-item aurelia-flex-green">Bad</div><div class="flex-item aurelia-flex-green">Ugly Parts</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia"><img src="images/aurelia-logo.png"></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-left"><h1>Aurelia</h1><h2>&#9679; ES6, ES7</h2><h2>&#9679; Web Components</h2><h2>&#9679; No external dependencies (except polyfills)</h2><h2>&#9679; Simple conventions</h2></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item aurelia-flex-pink">jspm.io</div><div data-enter="2" class="flex-item aurelia-flex-pink">bootstrapper</div><div data-enter="3" class="flex-item aurelia-flex-pink">aurelia-router</div><div data-enter="4" class="flex-item">&lt;template&gt;</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Vanilla SPA</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia"><h1>&lt;template&gt;</h1><p>HTMLTemplateElement</p><img src="images/template-specification.png"><img data-enter="1" src="images/template-browser.png"></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item">&lt;template&gt;</div><div data-enter="2" class="flex-item aurelia-flex-pink">@inject</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Search</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-middle"><div class="flex"><div data-enter="1" class="flex-item">&lt;template&gt;</div><div data-enter="2" class="flex-item aurelia-flex-pink">@inject</div><div data-enter="3" class="flex-item aurelia-flex-pink">movie-tile</div></div><div class="flex"><div class="flex-item aurelia-flex-green">Movie</div></div></web-slide><web-slide data-transition="moveToLeft" class="aurelia align-left"><h1>Delta Vanilla SPA - Aurelia</h1><h2>&#9679; Dependency Injection with @inject</h2><h2>&#9679; Two Way Databinding with @bindable</h2><h2>&#9679; Aurelia Bootstrapper and Aurelia Router</h2></web-slide><web-slide class="align-left"><h1>Lessons Learned</h1><p><ul><li style="margin-bottom:10px" data-enter="1">If you don't need to support older browsers you can build a single 
+page application almost without any additional libraries.
+</li><li style="margin-bottom:10px" data-enter="2">Frameworks make it easier for you to write tests!	
+</li><li style="margin-bottom:10px" data-enter="3">Adopt ECMAScript 6 either natively or use transpilers such as Babel.
+</li><li style="margin-bottom:10px" data-enter="4">Building applications with next gen framework requires less framework specific code.
+</li></ul></p></web-slide><web-slide><h1>&laquo;Yet Another JS Framework &raquo;</h1><h2 data-enter="1">isn't so bad after all!</h2></web-slide></web-presentation><script src="//localhost:9091">// livereload</script></body></html>
