@@ -1,14 +1,14 @@
 web-slide
 	h1 Let's start with a component
-	img(src="images/darkknight.jpg" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA")
+	img(src="images/matrix.png" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA")
 
 web-slide
 	h1 What do we want?
 	pre(data-enter="1" is="lang-markup").
-		&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+		&lt;movie-tile title="The Matrix" imageurl="img/matrix.png"&gt;&lt;/movie-tile&gt;
 
 web-slide
-	h1 we can't use
+	h1 we don't want to use
 	h2 Angular Directive
 	h2 React Components
 
@@ -19,17 +19,23 @@ include ../coding-time.jade
 include ../coding/movie-tile.jade
 
 web-slide
+	h1 Demo (iFrame?)
+
+web-slide
 	h1 Movie View
 	pre(is="lang-markup" theme="dark").
 		&lt;movie-view&gt;
-			&lt;ul&gt;
-				&lt;movie-tile&gt;&lt;/movie-tile&gt;
-				&lt;movie-tile&gt;&lt;/movie-tile&gt;
-				&lt;movie-tile&gt;&lt;/movie-tile&gt;
-			&lt;/ul&gt;
+			&lt;movie-tile&gt;&lt;/movie-tile&gt;
+			&lt;movie-tile&gt;&lt;/movie-tile&gt;
+			&lt;movie-tile&gt;&lt;/movie-tile&gt;
 		&lt;/movie-view&gt;
 
 include ../coding-time.jade
+
+include ../coding/movies-without-modules.jade
+
+web-slide
+	h1 Demo (iFrame?)
 
 web-slide
 	h1 How do we get the movie-tile into the movie-view?
@@ -37,19 +43,34 @@ web-slide
 include ./ex-es6-modules.jade
 include ../coding-time.jade
 
+include ../coding/movies-with-modules.jade
+
 web-slide
-	h1 Let's use real data. But how?
+	h1 Demo (iFrame?)
+
+web-slide
+	h1 Let's use real data. Can we use $http?
 
 
 include ./ex-fetch.jade
 include ../coding-time.jade
 
+include ../coding/movies-api.jade
 
 web-slide
-	h1 Search View
+	h1 Demo (iFrame?)
+
+web-slide
+	h1 introducing Search View
 	p Use Google Maps Api to get the duration
 
 include ../coding-time.jade
+
+include ../coding/search.jade
+include ../coding/google-api.jade
+
+web-slide
+	h1 Demo (iFrame?)
 
 web-slide
 	h1 App Component
@@ -57,29 +78,19 @@ web-slide
 
 include ../coding-time.jade
 
-web-slide
-	h1 Router
-	pre(is="lang-javascript" theme="dark").
-		router.configure(config => {
-			config.map([
-				{ route: "search",  component: SearchView },
-				{ route: "movies",  component: MoviesView }
-			]);
-		});
-	pre(is="lang-javascript" theme="dark").
-		router.navigate('movies', { duration: duration });
+include ../coding/app.jade
 
 web-slide
 	h1 Router
-	pre(is="lang-markup" theme="dark")
-		= '<router-view></router-view>'
-	pre(is="lang-javascript" theme="dark").
-		render(Component) {
-			this.empty();
-			this.appendChild(new Component());
-		}
+	p can we use ng-route?
+
+web-slide.genius
+	h1 unfortunately there is no standard (yet)
+	h1 do it yourself!
 
 include ../coding-time.jade
+
+include ../coding/router.jade
 
 web-slide
 	h1 Final App
