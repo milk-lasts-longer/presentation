@@ -2,6 +2,15 @@ html * {
     font-family: 'Raleway', sans-serif;
 }
 
+/* Slide size */
+web-slide::shadow div#content,
+web-slide-title::shadow div#content {
+      width: 960px;
+      height: 700px;
+      margin-top: -350px;
+      margin-left: -480px;
+}
+
 /* general styles */
 pre {
 	font-size: 0.7em;
