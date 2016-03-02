@@ -2,7 +2,7 @@
 <script src="/node_modules/codemirror/mode/javascript/javascript.js"></script>
 
 <template>
-	<mockup-window>
+	<mockup-window style="height:100%">
 		<div id="tabs"></div>
 		<div id="codecontainer">
 			<textarea id="code"></textarea>
@@ -10,11 +10,11 @@
 	</mockup-window>
 	<style>
 		/* BASICS */
-
+        
 		.CodeMirror {
 			/* Set height, width, borders, and global font properties here */
 			font-family: monospace;
-			height: 300px;
+			height: 100%;
 			color: black;
 		}
 		/* PADDING */
@@ -545,6 +545,7 @@
 
 		#codecontainer {
 			border-top: 1px solid #BBB;
+            height: calc(100% - 64px);
 		}
 	</style>
 </template>
