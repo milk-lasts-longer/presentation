@@ -1,5 +1,8 @@
 <script src="/node_modules/codemirror/lib/codemirror.js"></script>
 <script src="/node_modules/codemirror/mode/javascript/javascript.js"></script>
+<script src="/node_modules/codemirror/mode/xml/xml.js"></script>
+<script src="/node_modules/codemirror/mode/css/css.js"></script>
+<script src="/node_modules/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
 <template>
   <div id="header">
@@ -596,18 +599,18 @@
 
     const speed = 100; //ms
 
-    const codeMirrorConfig = {
-      lineNumbers: true
-    };
-
     class Editor extends HTMLElement {
       createdCallback() {
         var templateContent = document.importNode(templateElement.content, true);
         this.createShadowRoot().appendChild(templateContent);
         this.history = window[this.getAttribute('history')];
-
+        this.mode = this.getAttribute('mode');
+        this.start = this.getAttribute('start');
+        this.stop = this.getAttribute('stop');
+        
         this.initTabs();
         this.initCodeMirror();
+        this.initStart();
       }
 
       initTabs() {
@@ -630,18 +633,29 @@
 
       initCodeMirror() {
         const textArea = this.shadowRoot.getElementById('code');
-        this.codeMirror = CodeMirror.fromTextArea(textArea, codeMirrorConfig);
+        this.codeMirror = CodeMirror.fromTextArea(textArea, { lineNumbers: true, mode: this.mode || 'javascript' });
         this.codeMirror.doc.setHistory(JSON.parse(this.history));
 
         this.codeMirror.on('focus', () => this.run());
       }
-
+      
+      initStart() {
+          if(this.start) {
+              const start = parseInt(this.start, 10);
+              const size = this.codeMirror.doc.historySize().redo;
+              const redos = Math.min(start, size);
+              for(var i = 0; i < redos; i++) {
+                  this.codeMirror.doc.redo();
+              }
+          }
+      }
+      
       run() {
         this.interval = setInterval(() => this.next(), speed);
       }
 
       next() {
-        if (this.codeMirror.doc.historySize().redo > 0) {
+        if (this.codeMirror.doc.historySize().redo > 0 && (!this.stop || this.codeMirror.doc.historySize().undo < parseInt(this.stop, 10))) {
           this.codeMirror.doc.redo();
         } else {
           window.clearInterval(this.interval);
