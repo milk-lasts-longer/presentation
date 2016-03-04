@@ -1,23 +1,22 @@
 // http://www.sitepoint.com/understanding-es6-modules/
+// http://www.2ality.com/2013/07/es6-modules.html
 web-slide.genius
-	h1 Modules
+	h1 ECMAScript 6 Modules
+
+web-slide(class="align-left genius")
+	img(src="./images/electrical-plugs.jpg" style="height: 90%;width: 90%")
 
 web-slide(class="align-left genius")
 	h1 Modules
-	p.
-		We have two important standards, namely CommonJS and Asynchronous 
-		Module Definition (AMD) which let developers use modules in JavaScript. 
-		But, the next JavaScript version, known as ECMAScript 6, brings modules 
-		into JavaScript officially. 
 
 	pre(is="lang-javascript").
-		// utility.js
-		function generateRandom() { return Math.random(); }
-		function doSum(a, b) { return a + b; }
-	
-		export { generateRandom as random, doSum as sum }
+		// calc.js
+		const MY_CONSTANT = 7;
+		export function multiply(a) {
+			return a * MY_CONSTANT;
+		}
 
 	pre(is="lang-javascript").
 		// app.js
-		import { random, sum } from 'utility';
-		import 'utility' as utils; // alternatively
+		import { multiply } from 'calc';
+		console.log(multiply(3));
