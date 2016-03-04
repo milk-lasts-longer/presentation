@@ -1,55 +1,49 @@
 web-slide.genius
     h1 Fetch API
-    
+
 web-slide.genius
     h1 Disclaimer
     img(src="images/fetch.png")
     p This is an experimental technology :-)
-        
+
 web-slide(class="align-left genius")
     h1 Fetch API
     p.
         #[strong It is a living standard!] <br />
-        http://fetch.spec.whatwg.org 
+        http://fetch.spec.whatwg.org
     p.
         #[strong There is a polyfill!] <br />
-        https://github.com/github/fetch 
-    
+        https://github.com/github/fetch
+
 web-slide(class="fullscreen-image" style={"background-image": "url('images/old-car.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-javascript").
-        function reqListener() {  
-            var data = JSON.parse(this.responseText);  
-            console.log(data);  
+        function reqListener() {
+            var data = JSON.parse(this.responseText);
+            console.log(data);
         }
 
-        function reqError(err) {  
-            console.log('Fetch Error :-S', err);  
+        function reqError(err) {
+            console.log('Fetch Error :-S', err);
         }
 
-        var oReq = new XMLHttpRequest();  
-        oReq.onload = reqListener;  
-        oReq.onerror = reqError;  
-        oReq.open('get', './api/some.json', true);  
+        var oReq = new XMLHttpRequest();
+        oReq.onload = reqListener;
+        oReq.onerror = reqError;
+        oReq.open('get', './api/some.json', true);
         oReq.send();
-        
+
 web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" })
     pre(data-enter="1" is="lang-javascript").
         fetch('./api/some.json')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            console.log(data);
-        })
-        .catch(function(err) {
-            console.log('Fetch Error :-S', err);
-        });
-        
+          .then(result => result.json())
+          .then(data => console.log(data))
+          .catch(err => console.log('Fetch Error :-S', err));
+
 web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" }, data-transition="moveToLeft")
     pre(is="lang-javascript").
-        fetch('https://.../discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
-        .then(function(response) {
-            ...
+        fetch('http://localhost:3000/moviesByTime/8280')
+          .then(result => result.json());
+
     pre(data-enter="1" is="lang-javascript").
         {
             "movies": [
@@ -58,7 +52,7 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/new-c
                     "title":"The Weight of Chains 2",
                     "year":"2014",
                     ...
-                }, 
+                },
                 {
                     "imdbID":"tt4514084",
                     "title":"Far Too Far",
