@@ -103,8 +103,11 @@ mockup-browser img {
 }
 
 /* slide styles */
-.about h1 { margin-bottom: 0; }
-.about h1+div { font-size: 0.8em; }
+.about h1 { 
+    margin-bottom: 0; 
+    margin-top: 1.5em; 
+    font-size: 3em; 
+}
 
 .genius { background: #333; color: rgba(255, 255, 255, 0.8) }
 

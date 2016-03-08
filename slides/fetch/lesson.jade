@@ -38,26 +38,3 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/new-c
           .then(result => result.json())
           .then(data => console.log(data))
           .catch(err => console.log('Fetch Error :-S', err));
-
-web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" }, data-transition="moveToLeft")
-    pre(is="lang-javascript").
-        fetch('http://localhost:3000/moviesByTime/8280')
-          .then(result => result.json());
-
-    pre(data-enter="1" is="lang-javascript").
-        {
-            "movies": [
-                {
-                    "imdbID":"tt4733046",
-                    "title":"The Weight of Chains 2",
-                    "year":"2014",
-                    ...
-                },
-                {
-                    "imdbID":"tt4514084",
-                    "title":"Far Too Far",
-                    "year":"2015",
-                    ...
-                }
-            ]
-        }
