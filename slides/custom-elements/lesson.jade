@@ -1,3 +1,13 @@
+web-slide
+    h1 We don't want to use
+    div(style="display:flex")
+      div(style="flex:1; padding: 20px;")
+        img(src="images/frameworks/angular.png" style="height: 100px;")
+        h2 Angular Directives
+      div(style="flex:1; padding: 20px;")
+        img(src="images/frameworks/react.png" style="height: 100px;")
+        h2 React Components
+
 web-slide(class="genius", data-transition="moveToLeft")
     h1 Custom Elements
 
@@ -7,76 +17,22 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/beaut
 
 web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman-complex.png')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-markup").
-        &lt;div&gt;
-            &lt;div class="hair-mesh"&gt;
-                &lt;span class="..."&gt;&lt;/span&gt;
-                &lt;div class="..."&gt;
-                    ...
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="eyes"&gt;
-                &lt;span class="..."&gt;&lt;/span&gt;
-                &lt;div class=""&gt;
-                    ...
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="lips"&gt;
-                &lt;span class="..."&gt;&lt;/span&gt;
-                &lt;div class=""&gt;
-                    &lt;div class="..."&gt;
-                        &lt;span class="..."&gt;&lt;/span&gt;
-                        &lt;div class=""&gt;
-                            ...
-                        &lt;/div&gt;
+      class BeautifulWoman extends HTMLElement {
+        createdCallback() {
+            this.innerHTML = `
+                &lt;div&gt;
+                    &lt;div class="hair-mesh"&gt;
+                        ...
                     &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-web-slide(class="align-left genius")
-    h2 Custom Element Creation
-    pre(is="lang-javascript").
-        var BeautifulWoman = Object.create(HTMLElement.prototype);
-
-web-slide(class="align-left genius")
-            h2 Custom Element Creation
-            pre(is="lang-javascript").
-                var BeautifulWoman = Object.create(HTMLElement.prototype);
-
-                BeautifulWoman.createdCallback = function() {
-                    this.innerHTML = 'click me!';
-                    this.addEventListener('click', function(e) {
-                        alert('Hello!');
-                    });
-                };
-
-web-slide(class="align-left genius")
-    h2 Custom Element Creation
-    pre(is="lang-javascript").
-        var BeautifulWoman = Object.create(HTMLElement.prototype);
-
-        BeautifulWoman.createdCallback = function() {
-            this.innerHTML = 'click me!';
-            this.addEventListener('click', function(e) {
-                alert('Hello!');
-            });
-        };
-
-        document.registerElement('beautiful-woman', {
-            prototype: BeautifulWoman
-        });
-    pre(data-enter="1" is="lang-markup").
-        &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
-    script.
-        var BeautifulWoman = Object.create(HTMLElement.prototype);
-        BeautifulWoman.createdCallback = function() {
-            this.innerHTML = "click me!";
-            this.addEventListener('click', function(e) {
-                alert('Hello!');
-            });
-        };
-        document.registerElement('beautiful-woman', {
-            prototype: BeautifulWoman
-        });
-    p(data-enter="1")
-        beautiful-woman
+                    &lt;div class="eyes"&gt;
+                        ...
+                    &lt;/div&gt;
+                    &lt;div class="lips"&gt;
+                        ...
+                    &lt;/div&gt;
+                &lt;/div&gt;`;
+        }
+      }
+      document.registerElement('beautiful-woman', {
+        prototype: BeautifulWoman.prototype
+      });
