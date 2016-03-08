@@ -12,6 +12,11 @@ web-slide-title::shadow div#content {
 }
 
 /* general styles */
+web-slide {
+    background: #FBFBFB;
+    color: #313542;
+}
+
 pre {
 	font-size: 0.7em;
 }
