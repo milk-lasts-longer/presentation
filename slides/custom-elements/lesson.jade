@@ -11,12 +11,12 @@ web-slide
 web-slide(class="genius", data-transition="moveToLeft")
     h1 Custom Elements
 
-web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman.jpg')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman.jpg')" })
     pre(data-enter="1" is="lang-markup").
         &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
 
 web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman-complex.png')" }, data-transition="moveToLeft")
-    pre(data-enter="1" is="lang-markup").
+    pre(data-enter="1" is="lang-javascript").
       class BeautifulWoman extends HTMLElement {
         createdCallback() {
             this.innerHTML = `
@@ -33,6 +33,7 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/beaut
                 &lt;/div&gt;`;
         }
       }
+      
       document.registerElement('beautiful-woman', {
         prototype: BeautifulWoman.prototype
       });
