@@ -1,8 +1,12 @@
 web-slide
-	h1 Movie View
-	pre(is="lang-markup").
-		&lt;movie-view&gt;
-			&lt;movie-tile&gt;&lt;/movie-tile&gt;
-			&lt;movie-tile&gt;&lt;/movie-tile&gt;
-			&lt;movie-tile&gt;&lt;/movie-tile&gt;
-		&lt;/movie-view&gt;
+	h1 Bring Movie Tiles together in a View
+	div(style="display:flex")
+		div(style="flex:1")
+			img(src="images/movie-view-mock.png" style="width: 450px; box-shadow: 0px 1px 1px 1px #AAA")
+		div(style="flex:1")
+			pre(data-enter="1" is="lang-markup" style="margin:0 20px").
+				&lt;movie-view&gt;
+					&lt;movie-tile&gt;&lt;/movie-tile&gt;
+					&lt;movie-tile&gt;&lt;/movie-tile&gt;
+					&lt;movie-tile&gt;&lt;/movie-tile&gt;
+				&lt;/movie-view&gt;
