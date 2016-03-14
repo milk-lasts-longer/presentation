@@ -63,9 +63,11 @@ oReq.send();
 ])</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-markup">&lt;Route path=&quot;/search&quot; component={Search}&gt;
 &lt;Route path=&quot;/movies&quot; component={Movies}&gt;
 </pre></div></web-slide><web-slide class="lesson-learned"><h1>#1</h1><h2 data-enter="1">learn concepts - not frameworks</h2></web-slide><web-slide class="align-left"><h1>Universal Modules</h1><div class="code-with-label"><h2>MovieApi</h2><pre is="lang-javascript">import MovieApi from '../core/movie-api';
+
 MovieApi.searchByDuration(duration).then(data => {
 	// ...
 });</pre></div><div class="code-with-label"><h2>GoogleApi</h2><pre is="lang-javascript">import GoogleApi from '../core/google-api';
+
 GoogleApi.search(from, to).then(duration => {
 	//...
 });
