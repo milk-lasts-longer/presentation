@@ -62,14 +62,17 @@ oReq.send();
 	{ path: '/movies', name: 'Movies', component: MoviesViewComponent}
 ])</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-markup">&lt;Route path=&quot;/search&quot; component={Search}&gt;
 &lt;Route path=&quot;/movies&quot; component={Movies}&gt;
-</pre></div></web-slide><web-slide class="lesson-learned"><h1>#1</h1><h2 data-enter="1">learn concepts - not frameworks</h2></web-slide><web-slide class="align-left"><h1>Universal Modules</h1><div class="code-with-label"><h2>MovieApi</h2><pre is="lang-javascript">import MovieApi from '../core/movie-api';
+</pre></div></web-slide><web-slide class="lesson-learned"><h1>#1</h1><h2 data-enter="1">learn concepts - not frameworks</h2></web-slide><web-slide class="align-left"><h1>Reusable Services</h1><div class="code-with-label"><h2>React</h2><pre is="lang-javascript">import MovieApi from './movie-api';
 
-MovieApi.searchByDuration(duration).then(data => {
-	// ...
-});</pre></div><div class="code-with-label"><h2>GoogleApi</h2><pre is="lang-javascript">import GoogleApi from '../core/google-api';
-
-GoogleApi.search(from, to).then(duration => {
-	//...
+React.createClass({
+	componentDidMount: () => {
+		MovieApi.searchByDuration(props.duration).then(results => {
+			this.setState({ results })
+		});
+	},
+	render: () => {
+		return (&lt;div&gt;{this.state.results.length} Results&lt;/div&gt;);
+	}
 });
 </pre></div></web-slide><web-slide class="lesson-learned"><h1>#2</h1><h2>use standards as much as possible</h2></web-slide><web-slide class="lesson-learned"><h1>#1 learn concepts not frameworks</h1></web-slide><web-slide class="align-left"><h1>ES6 Modules</h1><div class="code-with-label"><h2>Movie App</h2><pre is="lang-javascript">import MoviesView from './movies/movies';
 </pre></div><div class="code-with-label"><h2>Aurelia</h2><pre is="lang-javascript">import {inject} from 'aurelia-framework';

@@ -1,20 +1,20 @@
 web-slide.align-left
-	h1 Universal Modules
-	div.code-with-label
-		h2 MovieApi
-		pre(is="lang-javascript").
-			import MovieApi from '../core/movie-api';
+	h1 Reusable Services
 			
-			MovieApi.searchByDuration(duration).then(data => {
-				// ...
-			});
 	div.code-with-label
-		h2 GoogleApi
+		h2 React
 		pre(is="lang-javascript").
-			import GoogleApi from '../core/google-api';
+			import MovieApi from './movie-api';
 			
-			GoogleApi.search(from, to).then(duration => {
-				//...
+			React.createClass({
+				componentDidMount: () => {
+					MovieApi.searchByDuration(props.duration).then(results => {
+						this.setState({ results })
+					});
+				},
+				render: () => {
+					return (&lt;div&gt;{this.state.results.length} Results&lt;/div&gt;);
+				}
 			});
 
 web-slide.lesson-learned
