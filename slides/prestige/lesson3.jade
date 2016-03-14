@@ -1,3 +1,31 @@
+web-slide.align-left
+	h1 Components
+	div.code-with-label
+		h2 Movie App
+		pre(is="lang-javascript").
+			class HelloComponent extends HTMLElement {}
+	div.code-with-label
+		h2 Aurelia
+		pre(is="lang-javascript").
+			@customElement('hello-component')
+			export class HelloComponent {}
+	div.code-with-label
+		h2 Angular 2
+		pre(is="lang-javascript").
+			@Component({
+				selector: 'hello-component',
+				template: '<div>Hello {{name}}</div>'
+			})
+			export class HelloComponent {}
+	div.code-with-label
+		h2 React
+		pre(is="lang-javascript").
+			class HelloComponent extends React.Component {
+				render() {
+					return <div>Hello {this.props.name}</div>;
+				}
+			}
+
 web-slide.lesson-learned
-	h1 #1
+	h1 #3
 	h2(data-enter="1") learn to think in components

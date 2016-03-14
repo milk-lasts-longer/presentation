@@ -77,7 +77,17 @@ React.createClass({
 		return (&lt;div&gt;{this.state.results.length} Results&lt;/div&gt;);
 	}
 });
-</pre></div></web-slide><web-slide class="lesson-learned"><h1>#2</h1><h2 data-enter="1">use standards as much as possible</h2></web-slide><web-slide class="lesson-learned"><h1>#1</h1><h2 data-enter="1">learn to think in components</h2></web-slide><web-slide class="align-left"><h1>ES6 Modules</h1><div class="code-with-label"><h2>Movie App</h2><pre is="lang-javascript">import MoviesView from './movies/movies';
+</pre></div></web-slide><web-slide class="lesson-learned"><h1>#2</h1><h2 data-enter="1">use standards as much as possible</h2></web-slide><web-slide class="align-left"><h1>Components</h1><div class="code-with-label"><h2>Movie App</h2><pre is="lang-javascript">class HelloComponent extends HTMLElement {}</pre></div><div class="code-with-label"><h2>Aurelia</h2><pre is="lang-javascript">@customElement('hello-component')
+export class HelloComponent {}</pre></div><div class="code-with-label"><h2>Angular 2</h2><pre is="lang-javascript">@Component({
+	selector: 'hello-component',
+	template: '<div>Hello {{name}}</div>'
+})
+export class HelloComponent {}</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-javascript">class HelloComponent extends React.Component {
+	render() {
+		return <div>Hello {this.props.name}</div>;
+	}
+}
+</pre></div></web-slide><web-slide class="lesson-learned"><h1>#3</h1><h2 data-enter="1">learn to think in components</h2></web-slide><web-slide class="align-left"><h1>ES6 Modules</h1><div class="code-with-label"><h2>Movie App</h2><pre is="lang-javascript">import MoviesView from './movies/movies';
 </pre></div><div class="code-with-label"><h2>Aurelia</h2><pre is="lang-javascript">import {inject} from 'aurelia-framework';
 </pre></div><div class="code-with-label"><h2>Angular 2</h2><pre is="lang-javascript">import {Component} from 'angular2/core';
 </pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-javascript">import React from 'react';
