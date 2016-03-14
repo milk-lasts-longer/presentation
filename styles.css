@@ -135,12 +135,12 @@ mockup-browser img {
 .lesson-learned h1 {
     margin: 0;
     font-size: 10em;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
 }
 .lesson-learned h2 {
     margin: 0;
     font-size: 3em;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
 }
 
 .tweet {
