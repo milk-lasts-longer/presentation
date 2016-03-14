@@ -62,7 +62,14 @@ oReq.send();
 	{ path: '/movies', name: 'Movies', component: MoviesViewComponent}
 ])</pre></div><div style="display: flex; align-items: center;"><h2 style="width: 140px;">React</h2><pre style="flex-grow: 1" is="lang-markup">&lt;Route path=&quot;/search&quot; component={Search}&gt;
 &lt;Route path=&quot;/movies&quot; component={Movies}&gt;
-</pre></div></web-slide><web-slide><h1>#1 learn concepts not frameworks</h1></web-slide><web-slide class="align-left"><h1>Lessons Learned</h1><p><ul><li style="margin-bottom:10px" data-enter="1">If you don't need to support older browsers you can build a single 
+</pre></div></web-slide><web-slide><h1>#1 learn concepts not frameworks</h1></web-slide><web-slide class="align-left"><h1>Universal Modules</h1><div style="display: flex; align-items: center;"><h2 style="width: 140px;">MovieApi</h2><pre style="flex-grow: 1" is="lang-javascript">import MovieApi from '../core/movie-api';
+MovieApi.searchByDuration(duration).then(data => {
+	// ...
+});</pre></div><div style="display: flex; align-items: center;"><h2 style="width: 140px;">GoogleApi</h2><pre style="flex-grow: 1" is="lang-javascript">import GoogleApi from '../core/google-api';
+GoogleApi.search(from, to).then(duration => {
+	//...
+});
+</pre></div></web-slide><web-slide><h1>#2 use standards as much as possible</h1></web-slide><web-slide class="align-left"><h1>Lessons Learned</h1><p><ul><li style="margin-bottom:10px" data-enter="1">If you don't need to support older browsers you can build a single 
 page application almost without any additional libraries.
 </li><li style="margin-bottom:10px" data-enter="2">Frameworks make it easier for you to write tests!	
 </li><li style="margin-bottom:10px" data-enter="3">Adopt ECMAScript 6 either natively or use transpilers such as Babel.
