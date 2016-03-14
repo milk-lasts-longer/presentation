@@ -1,22 +1,22 @@
 web-slide.align-left
 	h1 Router
-	div(style="display: flex; align-items: center;")
-		h2(style="width: 140px;") Aurelia
-		pre(style="flex-grow: 1" is="lang-javascript").
+	div.code-with-label
+		h2 Aurelia
+		pre(is="lang-javascript").
 			config.map([
 				{ route: 'search', name: 'search', moduleId: './search' },
 				{ route: 'movies', name: 'movies', moduleId: './movies' }
 			]);
-	div(style="display: flex; align-items: center;")
-		h2(style="width: 140px;") Angular 2
-		pre(style="flex-grow: 1" is="lang-javascript").
+	div.code-with-label
+		h2 Angular 2
+		pre(is="lang-javascript").
 			@RouteConfig([
 				{ path: '/search', name: 'Search', component: SearchViewComponent},
 				{ path: '/movies', name: 'Movies', component: MoviesViewComponent}
 			])
-	div(style="display: flex; align-items: center;")
-		h2(style="width: 140px;") React
-		pre(style="flex-grow: 1" is="lang-markup").
+	div.code-with-label
+		h2 React
+		pre(is="lang-markup").
 			&lt;Route path=&quot;/search&quot; component={Search}&gt;
 			&lt;Route path=&quot;/movies&quot; component={Movies}&gt;
 

@@ -106,6 +106,17 @@ mockup-browser img {
   width: 100%;
 }
 
+.code-with-label {
+    display: flex; 
+    align-items: center;
+}
+.code-with-label > h2 {
+    width: 140px;
+}
+.code-with-label > pre {
+    flex-grow: 1;
+}
+
 /* slide styles */
 .about h1 {
     margin-bottom: 0;
