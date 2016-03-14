@@ -1,6 +1,13 @@
 web-slide.align-left
 	h1 Router
 	div.code-with-label
+		h2 Movie App
+		pre(is="lang-javascript").
+			config.map([
+				{ route: "search", component: SearchView },
+				{ route: "movies", component: MoviesView }
+			]);
+	div.code-with-label
 		h2 Aurelia
 		pre(is="lang-javascript").
 			config.map([
