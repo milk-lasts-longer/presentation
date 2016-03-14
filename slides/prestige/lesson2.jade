@@ -1,0 +1,20 @@
+web-slide.align-left
+	h1 Universal Modules
+	div(style="display: flex; align-items: center;")
+		h2(style="width: 140px;") MovieApi
+		pre(style="flex-grow: 1" is="lang-javascript").
+			import MovieApi from '../core/movie-api';
+			MovieApi.searchByDuration(duration).then(data => {
+				// ...
+			});
+	div(style="display: flex; align-items: center;")
+		h2(style="width: 140px;") GoogleApi
+		pre(style="flex-grow: 1" is="lang-javascript").
+			import GoogleApi from '../core/google-api';
+			GoogleApi.search(from, to).then(duration => {
+				//...
+			});
+
+
+web-slide.lesson-learned
+	h1 #1 learn concepts not frameworks

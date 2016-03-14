@@ -117,6 +117,21 @@ mockup-browser img {
 
 .aurelia { background: #dddddd; }
 
+.lesson-learned {
+    background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
+    color: #FFF;
+}
+.lesson-learned h1 {
+    margin: 0;
+    font-size: 5em;
+    font-family: 'Open Sans';
+}
+.lesson-learned h2 {
+    margin: 0;
+    font-size: 3em;
+    font-family: 'Open Sans';
+}
+
 .tweet {
   width: 70%;
   box-shadow: 1px 1px 2px #AAA;
