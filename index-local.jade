@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    link(href="./node_modules/web-presentation/dist/web-presentation.html", rel="import")
+    link(href="./node_modules/prism-components/dist/prism-components.html", rel="import")
+    link(href="./node_modules/html-mocks/html-mocks.html", rel="import")
+    link(href="./slides/coding/fake-editor.html", rel="import")
+    link(href="./node_modules/web-presentation/dist/transitions.css", rel="stylesheet")
+    link(href="./node_modules/font-awesome/css/font-awesome.min.css", rel="stylesheet")
+    link(href="styles.css", rel="stylesheet")
+  body
+    script(src="./slides/coding/cm-history.js")
+    include presentation.jade
+    script(src="//localhost:9091") // livereload
