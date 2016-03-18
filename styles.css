@@ -194,3 +194,29 @@ iframe {
        url('/fonts/Raleway-regular/Raleway-regular.ttf') format('truetype'),
        url('/fonts/Raleway-regular/Raleway-regular.svg#Raleway') format('svg');
 }
+
+.raining-icons img {
+	width: 100px;
+	animation: fallingLeaves 10s infinite linear;
+}
+.raining-icons img:nth-child(5n+5) {
+  animation-delay: 1s;
+}
+
+.raining-icons img:nth-child(3n+2) {
+  animation-delay: 3s;
+}
+
+.raining-icons img:nth-child(2n+5) {
+  animation-delay: 5s;
+}
+@keyframes fallingLeaves {
+  0% {
+  opacity: 1;
+    transform: translate(0px, -400px) rotateZ(0deg);
+  }
+  100% {
+  opacity: 1;
+    transform: translate(100px, 400px) rotateZ(270deg);
+  }
+}
