@@ -74,6 +74,10 @@ i {
 	background-size: cover;
 }
 
+.multiply::shadow div#content  {
+	mix-blend-mode: multiply;
+}
+
 .align-left::shadow div#content {
   justify-content: initial;
   align-items: initial;
@@ -199,24 +203,26 @@ iframe {
 	width: 100px;
 	animation: fallingLeaves 10s infinite linear;
 }
+.raining-icons img:nth-child(2n) {
+  animation-delay: 7s;
+}
 .raining-icons img:nth-child(5n+5) {
-  animation-delay: 1s;
+  animation-delay: 2s;
 }
-
 .raining-icons img:nth-child(3n+2) {
-  animation-delay: 3s;
-}
-
-.raining-icons img:nth-child(2n+5) {
-  animation-delay: 5s;
+  animation-delay: 4s;
 }
 @keyframes fallingLeaves {
   0% {
+  	opacity: 1;
+    transform: translate(0px, -500px) rotateZ(0deg);
+  }
+  70% {
   opacity: 1;
-    transform: translate(0px, -400px) rotateZ(0deg);
+    transform: translate(70px, 200px) rotateZ(190deg);
   }
   100% {
-  opacity: 1;
+  opacity: 0;
     transform: translate(100px, 400px) rotateZ(270deg);
   }
 }
