@@ -597,7 +597,7 @@
     const importDoc = document.currentScript.ownerDocument;
     const templateElement = importDoc.querySelector("template");
 
-    const speed = 100; //ms
+    const defaultSpeed = 500; //ms
 
     class Editor extends HTMLElement {
       createdCallback() {
@@ -651,14 +651,46 @@
       }
       
       run() {
-        this.interval = setInterval(() => this.next(), speed);
+        this.runWithSpeed(defaultSpeed);
+		
+		this.listener = e => {
+			switch(e.code) {
+				case 'ShiftLeft': this.slower(); break;
+				case 'ShiftRight': this.faster(); break;
+			}
+		}; 
+		
+		window.addEventListener('keydown', this.listener);
       }
-
+      
+      pause() {
+		  window.clearInterval(this.interval);
+	  }
+	  
+	  slower() {
+		  if(this.currentSpeed) {
+			  this.runWithSpeed(this.currentSpeed*2);			  
+		  }
+	  }
+	  
+	  faster() {
+		  if(this.currentSpeed && this.currentSpeed >= 2) {
+			  this.runWithSpeed(this.currentSpeed/2);			  
+		  }
+	  }
+	  
+	  runWithSpeed(speed) {
+		  this.currentSpeed = speed;
+		  window.clearInterval(this.interval);
+		  this.interval = setInterval(() => this.next(), speed);
+	  }
+	  
       next() {
         if (this.codeMirror.doc.historySize().redo > 0 && (!this.stop || this.codeMirror.doc.historySize().undo < parseInt(this.stop, 10))) {
           this.codeMirror.doc.redo();
         } else {
           window.clearInterval(this.interval);
+		  window.removeEventListener('keydown', this.listener);
         }
       }
     }
