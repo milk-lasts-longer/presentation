@@ -597,7 +597,8 @@
     const importDoc = document.currentScript.ownerDocument;
     const templateElement = importDoc.querySelector("template");
 
-    const defaultSpeed = 500; //ms
+    const defaultSpeed = 250; //ms
+    const multiplier = 1.4;
 
     class Editor extends HTMLElement {
       createdCallback() {
@@ -669,13 +670,13 @@
 	  
 	  slower() {
 		  if(this.currentSpeed) {
-			  this.runWithSpeed(this.currentSpeed*2);			  
+			  this.runWithSpeed(this.currentSpeed*multiplier);			  
 		  }
 	  }
 	  
 	  faster() {
-		  if(this.currentSpeed && this.currentSpeed >= 2) {
-			  this.runWithSpeed(this.currentSpeed/2);			  
+		  if(this.currentSpeed && this.currentSpeed >= multiplier) {
+			  this.runWithSpeed(this.currentSpeed/multiplier);			  
 		  }
 	  }
 	  
