@@ -11,12 +11,11 @@ web-slide(class="align-left genius")
 
 	pre(is="lang-javascript").
 		// calc.js
-		const MY_CONSTANT = 7;
-		export function multiply(a) {
-			return a * MY_CONSTANT;
+		export function multiplyBySeven(a) {
+			return a * 7;
 		}
 
 	pre(is="lang-javascript").
 		// app.js
-		import { multiply } from 'calc';
-		console.log(multiply(3));
+		import { multiplyBySeven } from 'calc';
+		console.log(multiplyBySeven(3));
