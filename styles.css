@@ -73,6 +73,12 @@ i {
   background-position: center;
 	background-size: cover;
 }
+.fullscreen-image-contained {
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+	background-size: contain;
+}
 
 .multiply::shadow div#content  {
 	mix-blend-mode: multiply;

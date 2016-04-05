@@ -3,26 +3,26 @@
 			image="matrix.png"
 			rating="8.7"
 			runtime="136 min"&gt;
-&lt;/movie-tile&gt;</pre></div></div></web-slide><web-slide><fake-editor history="htmlInitial" tabs="index.html" tab-active="0" mode="htmlmixed"></fake-editor></web-slide><web-slide><h1>We don't want to use</h1><div style="display:flex"><div style="flex:1; padding: 20px;"><img src="images/frameworks/angular.png" style="height: 100px;"><h2>Angular Directives</h2></div><div style="flex:1; padding: 20px;"><img src="images/frameworks/react.png" style="height: 100px;"><h2>React Components</h2></div></div></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/beautiful-woman.jpg')" class="fullscreen-image"><pre data-enter="1" is="lang-markup">&lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
-</pre></web-slide><web-slide style="background-image:url('images/beautiful-woman-complex.png')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">class BeautifulWoman extends HTMLElement {
+&lt;/movie-tile&gt;</pre></div></div></web-slide><web-slide><fake-editor history="htmlInitial" tabs="index.html" tab-active="0" mode="htmlmixed"></fake-editor></web-slide><web-slide><h1>We don't want to use</h1><div style="display:flex"><div style="flex:1; padding: 20px;"><img src="images/frameworks/angular.png" style="height: 100px;"><h2>Angular Directives</h2></div><div style="flex:1; padding: 20px;"><img src="images/frameworks/react.png" style="height: 100px;"><h2>React Components</h2></div></div></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/road_bike.png')" class="fullscreen-image-contained"><pre data-enter="1" is="lang-markup">&lt;road-bike&gt;&lt;/road-bike&gt;
+</pre></web-slide><web-slide style="background-image:url('images/road_bike_parts.png')" data-transition="moveToLeft" class="fullscreen-image-contained"><pre data-enter="1" is="lang-javascript">class RoadBike extends HTMLElement {
   createdCallback() {
       this.innerHTML = `
           &lt;div&gt;
-              &lt;div class="hair-mesh"&gt;
+              &lt;div class="frame"&gt;
                   ...
               &lt;/div&gt;
-              &lt;div class="eyes"&gt;
+              &lt;div class="chain"&gt;
                   ...
               &lt;/div&gt;
-              &lt;div class="lips"&gt;
+              &lt;div class="saddle"&gt;
                   ...
               &lt;/div&gt;
           &lt;/div&gt;`;
   }
 }
 
-document.registerElement('beautiful-woman', {
-  prototype: BeautifulWoman.prototype
+document.registerElement('road-bike', {
+  prototype: RoadBike.prototype
 });</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><fake-editor history="movieTileInitial" tabs="index.html,app.js" tab-active="1" stop="298"></fake-editor></web-slide><web-slide><fake-editor history="htmlMovieTileWithAttributes" tabs="index.html,app.js" tab-active="0" mode="htmlmixed" start="1"></fake-editor></web-slide><web-slide><fake-editor history="movieTileInitial" tabs="index.html,app.js" tab-active="1" start="298"></fake-editor></web-slide><web-slide class="demo-slide"><h1>Demo</h1><mockup-browser addressBar="http://movie-finder/v1"><div class="demo-browser"><iframe src="http://localhost:8082/app/v1"></iframe></div></mockup-browser></web-slide><!-- modules--><web-slide><h1>Bring Movie Tiles together in a View</h1><div style="display:flex"><div style="flex:1"><img src="images/movie-view-mock.png" style="width: 450px"></div><div style="flex:1"><pre data-enter="1" is="lang-markup" style="margin:0 20px">&lt;movie-view&gt;
 	&lt;movie-tile&gt;&lt;/movie-tile&gt;
 	&lt;movie-tile&gt;&lt;/movie-tile&gt;

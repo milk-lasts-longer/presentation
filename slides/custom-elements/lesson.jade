@@ -11,29 +11,29 @@ web-slide
 web-slide(class="genius", data-transition="moveToLeft")
     h1 Custom Elements
 
-web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman.jpg')" })
+web-slide(class="fullscreen-image-contained" style={"background-image": "url('images/road_bike.png')" })
     pre(data-enter="1" is="lang-markup").
-        &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
+        &lt;road-bike&gt;&lt;/road-bike&gt;
 
-web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman-complex.png')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image-contained" style={"background-image": "url('images/road_bike_parts.png')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-javascript").
-      class BeautifulWoman extends HTMLElement {
+      class RoadBike extends HTMLElement {
         createdCallback() {
             this.innerHTML = `
                 &lt;div&gt;
-                    &lt;div class="hair-mesh"&gt;
+                    &lt;div class="frame"&gt;
                         ...
                     &lt;/div&gt;
-                    &lt;div class="eyes"&gt;
+                    &lt;div class="chain"&gt;
                         ...
                     &lt;/div&gt;
-                    &lt;div class="lips"&gt;
+                    &lt;div class="saddle"&gt;
                         ...
                     &lt;/div&gt;
                 &lt;/div&gt;`;
         }
       }
-      
-      document.registerElement('beautiful-woman', {
-        prototype: BeautifulWoman.prototype
+
+      document.registerElement('road-bike', {
+        prototype: RoadBike.prototype
       });
