@@ -114,6 +114,9 @@ fake-editor {
   width: 90%;
   height: 90%;
 }
+fake-editor::shadow .CodeMirror {
+	font-size: 1.3em;
+}
 
 mockup-browser {
 	width: 80%;
