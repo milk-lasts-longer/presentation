@@ -80,6 +80,15 @@ i {
 	background-size: contain;
 }
 
+.diagonal {
+	-webkit-transform: rotate(345deg);
+	-moz-transform: rotate(345deg);
+	-o-transform: rotate(345deg);
+	writing-mode: lr-tb;
+	margin: auto;
+	color: red;
+}
+
 .multiply::shadow div#content  {
 	mix-blend-mode: multiply;
 }
