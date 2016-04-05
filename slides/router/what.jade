@@ -8,3 +8,14 @@ web-slide.genius
 web-slide-title.fullscreen-image(style="background-image: url('images/got.gif')")
 	h1
 		span(data-enter="1") there is no standard yet
+
+web-slide
+	h1 How does a router work?
+	mockup-browser
+		div.routerworks-container
+			header 
+				p Header
+			main 
+				section(data-enter="1", data-exit="2") Page A
+				section(data-enter="2", data-exit="3") Page B
+				section(data-enter="3") Page C
