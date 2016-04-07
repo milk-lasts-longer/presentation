@@ -1,5 +1,5 @@
 html * {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Slide size */
@@ -15,6 +15,14 @@ web-slide-title::shadow div#content {
 web-slide {
     background: #FBFBFB;
     color: #313542;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
 }
 
 pre {
@@ -132,7 +140,8 @@ mockup-browser img {
     align-items: center;
 }
 .code-with-label > h2 {
-    width: 140px;
+    width: 170px;
+	font-size: 1.6em;
 }
 .code-with-label > pre {
     flex-grow: 1;
@@ -142,10 +151,15 @@ mockup-browser img {
 .about h1 {
     margin-bottom: 0;
     margin-top: 1.5em;
-    font-size: 3em;
+    font-size: 2.9em;
+}
+
+.about {
+	font-size: 1.2em;
 }
 
 .genius { background: #333; color: rgba(255, 255, 255, 0.8) }
+.genius h1 { font-size: 3em; }
 
 .aurelia { background: #dddddd; }
 
