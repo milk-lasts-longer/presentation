@@ -1,21 +1,16 @@
 web-slide.genius
     h1 Fetch API
 
-web-slide.genius
-    h1 Disclaimer
+web-slide(class="genius")
+    h1 It is a living standard
+    h2 http://fetch.spec.whatwg.org
+
+web-slide(class="genius")
+    h1 There is a polyfill
+    h2 https://github.com/github/fetch
     img(src="images/fetch.png")
-    p This is an experimental technology :-)
 
-web-slide(class="align-left genius")
-    h1 Fetch API
-    h2.
-        It is a living standard! <br />
-        &rarr; http://fetch.spec.whatwg.org
-    h2.
-        There is a polyfill! <br />
-        &rarr; https://github.com/github/fetch
-
-web-slide(class="fullscreen-image" style={"background-image": "url('images/old-car.jpg')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image" style={"background-image": "url('images/old-car.jpg')" })
     pre(data-enter="1" is="lang-javascript").
         function reqListener() {
             var data = JSON.parse(this.responseText);
