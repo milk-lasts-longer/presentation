@@ -14,8 +14,36 @@ web-slide
 	mockup-browser
 		div.routerworks-container
 			header 
-				p Header
+				p Router View
+			main
+
+web-slide
+	h1 How does a router work?
+	mockup-browser(addressBar="/#/search")
+		div.routerworks-container
+			header 
+				p Router View &nbsp;
+				p #SearchView
 			main 
-				section(data-enter="1", data-exit="2") Page A
-				section(data-enter="2", data-exit="3") Page B
-				section(data-enter="3") Page C
+				section
+					div(style="width: 100%")
+					form
+						input(placeholder="from")
+						input(placeholder="to")
+						button Movietime
+					
+web-slide
+	h1 How does a router work?
+	mockup-browser(addressBar="/#/movies")
+		div.routerworks-container
+			header 
+				p Router View &nbsp;
+				p #MoviesView
+			main 
+				section.moviesview
+					section Movie1
+					section Movie2
+					section Movie3
+					section Movie4
+					section Movie5
+					section Movie6
