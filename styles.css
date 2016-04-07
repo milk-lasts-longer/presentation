@@ -275,19 +275,16 @@ iframe {
 	width: calc(100% - 30px);
 	height: calc(100% - 30px);
 	border: 4px solid #333;
-<<<<<<< HEAD
 	padding: 30px;
 }
-=======
-}
-.routerworks-container main > section form input, .routerworks-container main > section form button { 
+.routerworks-container main > section form input, .routerworks-container main > section form button {
 	border: 2px solid black;
     background: none;
 	margin: 3px;
 	font-size: 1em;
 	padding: 0.4em;
 }
-.routerworks-container main > section.moviesview { 
+.routerworks-container main > section.moviesview {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
@@ -300,4 +297,3 @@ iframe {
     margin: 2%;
     height: 33%;
 }
->>>>>>> gh-pages
