@@ -275,7 +275,6 @@ iframe {
 	width: calc(100% - 30px);
 	height: calc(100% - 30px);
 	border: 4px solid #333;
-	padding: 30px;
 }
 .routerworks-container main > section form input, .routerworks-container main > section form button {
 	border: 2px solid black;
