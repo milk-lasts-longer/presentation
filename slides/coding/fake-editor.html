@@ -14,11 +14,11 @@
   <textarea id="code"></textarea>
   <style>
     /* BASICS */
-    
+
     .CodeMirror {
       /* Set height, width, borders, and global font properties here */
       font-family: monospace;
-      height: 100%;
+      height: calc(100% - 30px);
       color: black;
     }
     /* PADDING */
@@ -608,7 +608,7 @@
         this.mode = this.getAttribute('mode');
         this.start = this.getAttribute('start');
         this.stop = this.getAttribute('stop');
-        
+
         this.initTabs();
 		this.initSteps();
         this.initCodeMirror();
@@ -632,7 +632,7 @@
           tabsContainer.appendChild(tabElement);
         });
       }
-	  
+
 	  initSteps() {
 		  const steps = this.getAttribute('steps');
 		  this.stepArray = steps ? steps.split(',').map(s => parseInt(s, 10)) : [];
@@ -645,7 +645,7 @@
 
         this.codeMirror.on('focus', () => this.run());
       }
-      
+
       initStart() {
           if(this.start) {
               const start = parseInt(this.start, 10);
@@ -656,35 +656,35 @@
               }
           }
       }
-      
+
       run() {
         this.runWithSpeed(defaultSpeed);
-		
+
 		this.listener = e => {
 			switch(e.code) {
 				case 'ShiftLeft': this.slower(); break;
 				case 'ShiftRight': this.fasterOrResume(); break;
 			}
-		}; 
-		
+		};
+
 		window.addEventListener('keydown', this.listener);
       }
-      
+
       clearInterval() {
 		  window.clearInterval(this.interval);
 		  this.interval = undefined;
 	  }
-	  
+
 	  resume() {
 		  this.interval = setInterval(() => this.next(), this.currentSpeed);
 	  }
-	  
+
 	  slower() {
 		  if(this.currentSpeed) {
-			  this.runWithSpeed(this.currentSpeed*multiplier);			  
+			  this.runWithSpeed(this.currentSpeed*multiplier);
 		  }
 	  }
-	  
+
 	  fasterOrResume() {
 		  if(this.interval) {
 			  this.faster();
@@ -692,28 +692,28 @@
 			  this.resume();
 		  }
 	  }
-	  
+
 	  faster() {
 		  if(this.currentSpeed && this.currentSpeed >= multiplier) {
-			  this.runWithSpeed(this.currentSpeed/multiplier);			  
+			  this.runWithSpeed(this.currentSpeed/multiplier);
 		  }
 	  }
-	  
+
 	  runWithSpeed(speed) {
 		  this.currentSpeed = speed;
 		  this.clearInterval();
 		  this.resume()
 	  }
-	  
+
       next() {
 		const undoCount = this.codeMirror.doc.historySize().undo;
 		const historyEmpty = this.codeMirror.doc.historySize().redo <= 0;
 		const redoStopReached = (this.stop && undoCount >= parseInt(this.stop, 10));
 		const shouldPause = this.stepArray.some(step => step === undoCount);
-		
+
 		if(historyEmpty || redoStopReached) {
 			this.clearInterval();
-		  	window.removeEventListener('keydown', this.listener);	
+		  	window.removeEventListener('keydown', this.listener);
 		} else if(shouldPause) {
 			this.stepArray.shift();
 			this.clearInterval();
