@@ -39,18 +39,17 @@ i {
 }
 
 .flex-item {
-    border: 0.1em solid #9a9180;
-    border-top-left-radius: 0.4em;
-    border-top-right-radius: 0.4em;
-    border-bottom-left-radius: 0.4em;
-    border-bottom-right-radius: 0.4em;
-    margin: 0.5em;
+    margin: 1em;
     padding: 0.3em;
-    line-height: 5em;
     vertical-align: middle;
     flex-grow: 1;
     text-align: center;
     font-weight: bold;
+}
+img.about-us {
+	border-radius: 50%;
+	display: block;
+	width: 14em;
 }
 
 .aurelia-flex-pink {
