@@ -39,18 +39,17 @@ i {
 }
 
 .flex-item {
-    border: 0.1em solid #9a9180;
-    border-top-left-radius: 0.4em;
-    border-top-right-radius: 0.4em;
-    border-bottom-left-radius: 0.4em;
-    border-bottom-right-radius: 0.4em;
-    margin: 0.5em;
+    margin: 1em;
     padding: 0.3em;
-    line-height: 5em;
     vertical-align: middle;
     flex-grow: 1;
     text-align: center;
     font-weight: bold;
+}
+img.about-us {
+	border-radius: 50%;
+	display: block;
+	width: 14em;
 }
 
 .aurelia-flex-pink {
@@ -277,14 +276,14 @@ iframe {
 	height: calc(100% - 30px);
 	border: 4px solid #333;
 }
-.routerworks-container main > section form input, .routerworks-container main > section form button { 
+.routerworks-container main > section form input, .routerworks-container main > section form button {
 	border: 2px solid black;
     background: none;
 	margin: 3px;
 	font-size: 1em;
 	padding: 0.4em;
 }
-.routerworks-container main > section.moviesview { 
+.routerworks-container main > section.moviesview {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
