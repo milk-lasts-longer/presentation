@@ -711,6 +711,8 @@
 		const redoStopReached = (this.stop && undoCount >= parseInt(this.stop, 10));
 		const shouldPause = this.stepArray.some(step => step === undoCount);
 
+		console.log(undoCount);
+
 		if(historyEmpty || redoStopReached) {
 			this.clearInterval();
 		  	window.removeEventListener('keydown', this.listener);
