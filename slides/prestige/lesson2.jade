@@ -1,15 +1,15 @@
 web-slide.lesson-learned(data-transition="fall")
 	h1 #2
 	h2(data-enter="1") use standards as much as possible
-	
+
 web-slide.align-left
-	h1 Reusable Services
-			
+	h1 Reusable services
+
 	div.code-with-label
 		h2 React
 		pre(is="lang-javascript").
 			import MovieApi from './movie-api';
-			
+
 			React.createClass({
 				componentDidMount: () => {
 					MovieApi.searchByDuration(props.duration).then(results => {
