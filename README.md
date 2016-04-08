@@ -1,6 +1,7 @@
 # Milk Lasts Longer Presentation
 Slides as PDF: http://milk-lasts-longer.github.io/presentation/Slides.pdf
-http://milk-lasts-longer.github.io/presentation/
+
+Or directly: http://milk-lasts-longer.github.io/presentation/
 
 # Usage
 Install and run code examples (https://github.com/milk-lasts-longer/code):
