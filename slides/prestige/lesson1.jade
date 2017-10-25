@@ -19,12 +19,12 @@ web-slide.align-left
 				{ route: 'movies', name: 'movies', moduleId: './movies' }
 			]);
 	div.code-with-label
-		h2 Angular 2
+		h2 Angular
 		pre(is="lang-javascript").
-			@RouteConfig([
-				{ path: '/search', name: 'Search', component: SearchViewComponent},
-				{ path: '/movies', name: 'Movies', component: MoviesViewComponent}
-			])
+			const routes = [
+				{ path: '/search', component: SearchViewComponent },
+				{ path: '/movies', component: MoviesViewComponent }
+			];
 	div.code-with-label
 		h2 React
 		pre(is="lang-markup").
