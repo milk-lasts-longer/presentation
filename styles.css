@@ -1,36 +1,36 @@
 html * {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Slide size */
 web-slide::shadow div#content,
 web-slide-title::shadow div#content {
-      width: 960px;
-      height: 700px;
-      margin-top: -350px;
-      margin-left: -480px;
+  width: 960px;
+  height: 700px;
+  margin-top: -350px;
+  margin-left: -480px;
 }
 
 /* general styles */
 web-slide {
-    background: #FBFBFB;
-    color: #313542;
+  background: #fbfbfb;
+  color: #313542;
 }
 
 h1 {
-	font-size: 3em;
+  font-size: 3em;
 }
 
 h2 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 pre {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 p {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 i {
@@ -42,29 +42,29 @@ i {
 }
 
 .flex {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .flex-item {
-    margin: 1em;
-    padding: 0.3em;
-    vertical-align: middle;
-    flex-grow: 1;
-    text-align: center;
-    font-weight: bold;
+  margin: 1em;
+  padding: 0.3em;
+  vertical-align: middle;
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
 }
 img.about-us {
-	border-radius: 50%;
-	display: block;
-	width: 14em;
+  border-radius: 50%;
+  display: block;
+  width: 14em;
 }
 
 .aurelia-flex-pink {
-    background-color: #F498BF;
+  background-color: #f498bf;
 }
 .aurelia-flex-green {
-    background-color: #7FE5A6;
+  background-color: #7fe5a6;
 }
 
 @media print {
@@ -75,29 +75,29 @@ img.about-us {
 }
 
 .fullscreen-image {
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-	background-size: cover;
+  background-size: cover;
 }
 .fullscreen-image-contained {
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-	background-size: contain;
+  background-size: contain;
 }
 
 .diagonal {
-	-webkit-transform: rotate(345deg);
-	-moz-transform: rotate(345deg);
-	-o-transform: rotate(345deg);
-	writing-mode: lr-tb;
-	margin: auto;
-	color: red;
+  -webkit-transform: rotate(345deg);
+  -moz-transform: rotate(345deg);
+  -o-transform: rotate(345deg);
+  writing-mode: lr-tb;
+  margin: auto;
+  color: red;
 }
 
-.multiply::shadow div#content  {
-	mix-blend-mode: multiply;
+.multiply::shadow div#content {
+  mix-blend-mode: multiply;
 }
 
 .align-left::shadow div#content {
@@ -114,7 +114,7 @@ img.about-us {
 }
 
 ul.align-left li {
-    text-align: left;
+  text-align: left;
 }
 
 fake-editor {
@@ -122,13 +122,13 @@ fake-editor {
   height: 90%;
 }
 fake-editor::shadow .CodeMirror {
-	font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 mockup-browser {
-	width: 80%;
-    height: 70%;
-	box-shadow: 0px 0px 3px 3px rgba(200, 200, 200, 0.2);
+  width: 80%;
+  height: 70%;
+  box-shadow: 0px 0px 3px 3px rgba(200, 200, 200, 0.2);
 }
 
 mockup-browser img {
@@ -136,178 +136,190 @@ mockup-browser img {
 }
 
 .code-with-label {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .code-with-label > h2 {
-    width: 170px;
-	font-size: 1.6em;
+  width: 170px;
+  font-size: 1.6em;
 }
 .code-with-label > pre {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 /* slide styles */
 .about h1 {
-    margin-bottom: 0;
-    margin-top: 1.5em;
-    font-size: 2.9em;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+  font-size: 2.9em;
 }
 
 .about {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 
-.genius { background: #333; color: rgba(255, 255, 255, 0.8) }
-.genius h1 { font-size: 3em; }
+.genius {
+  background: #333;
+  color: rgba(255, 255, 255, 0.8);
+}
+.genius h1 {
+  font-size: 3em;
+}
 
-.aurelia { background: #dddddd; }
+.aurelia {
+  background: #dddddd;
+}
 
 .lesson-learned {
-    background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
-    color: #FFF;
+  background: radial-gradient(
+    ellipse farthest-corner at center top,
+    #f39264 0%,
+    #f2606f 100%
+  );
+  color: #fff;
 }
 .lesson-learned h1 {
-    margin: 0;
-    font-size: 10em;
-    font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  font-size: 10em;
+  font-family: "Open Sans", sans-serif;
 }
 .lesson-learned h2 {
-    margin: 0;
-    font-size: 3em;
-    font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  font-size: 3em;
+  font-family: "Open Sans", sans-serif;
 }
 
 .tweet {
   width: 70%;
-  box-shadow: 1px 1px 2px #AAA;
+  box-shadow: 1px 1px 2px #aaa;
 }
 
 .demo-slide {
-    background: #53AB97;
-    color: #FFF;
+  background: #53ab97;
+  color: #fff;
 }
 
 .demo-browser {
-    position: relative;
-    height: 100%;
-    overflow-y: hidden;
+  position: relative;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 iframe {
-	width: 100%;
-	height: 100%;
-	transform: scale(1);
-	transform-origin: 0 0;
-	border: none;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transform-origin: 0 0;
+  border: none;
 }
 
-
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url('/fonts/Open-Sans-regular/Open-Sans-regular.eot');
-  src: url('/fonts/Open-Sans-regular/Open-Sans-regular.eot?#iefix') format('embedded-opentype'),
-       local('Open Sans'),
-       local('Open-Sans-regular'),
-       url('/fonts/Open-Sans-regular/Open-Sans-regular.woff2') format('woff2'),
-       url('/fonts/Open-Sans-regular/Open-Sans-regular.woff') format('woff'),
-       url('/fonts/Open-Sans-regular/Open-Sans-regular.ttf') format('truetype'),
-       url('/fonts/Open-Sans-regular/Open-Sans-regular.svg#OpenSans') format('svg');
+  src: url("/fonts/Open-Sans-regular/Open-Sans-regular.eot");
+  src: url("/fonts/Open-Sans-regular/Open-Sans-regular.eot?#iefix")
+      format("embedded-opentype"),
+    local("Open Sans"), local("Open-Sans-regular"),
+    url("/fonts/Open-Sans-regular/Open-Sans-regular.woff2") format("woff2"),
+    url("/fonts/Open-Sans-regular/Open-Sans-regular.woff") format("woff"),
+    url("/fonts/Open-Sans-regular/Open-Sans-regular.ttf") format("truetype"),
+    url("/fonts/Open-Sans-regular/Open-Sans-regular.svg#OpenSans") format("svg");
 }
 @font-face {
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-weight: 400;
   font-style: normal;
-  src: url('/fonts/Raleway-regular/Raleway-regular.eot');
-  src: url('/fonts/Raleway-regular/Raleway-regular.eot?#iefix') format('embedded-opentype'),
-       local('Raleway'),
-       local('Raleway-regular'),
-       url('/fonts/Raleway-regular/Raleway-regular.woff2') format('woff2'),
-       url('/fonts/Raleway-regular/Raleway-regular.woff') format('woff'),
-       url('/fonts/Raleway-regular/Raleway-regular.ttf') format('truetype'),
-       url('/fonts/Raleway-regular/Raleway-regular.svg#Raleway') format('svg');
+  src: url("/fonts/Raleway-regular/Raleway-regular.eot");
+  src: url("/fonts/Raleway-regular/Raleway-regular.eot?#iefix")
+      format("embedded-opentype"),
+    local("Raleway"), local("Raleway-regular"),
+    url("/fonts/Raleway-regular/Raleway-regular.woff2") format("woff2"),
+    url("/fonts/Raleway-regular/Raleway-regular.woff") format("woff"),
+    url("/fonts/Raleway-regular/Raleway-regular.ttf") format("truetype"),
+    url("/fonts/Raleway-regular/Raleway-regular.svg#Raleway") format("svg");
 }
 
 .raining-icons img {
-	width: 100px;
-	animation: fallingLeaves 10s infinite linear;
+  width: 100px;
+  animation: fallingLeaves 10s infinite linear;
 }
 .raining-icons img:nth-child(2n) {
   animation-delay: 7s;
 }
-.raining-icons img:nth-child(5n+5) {
+.raining-icons img:nth-child(5n + 5) {
   animation-delay: 2s;
 }
-.raining-icons img:nth-child(3n+2) {
+.raining-icons img:nth-child(3n + 2) {
   animation-delay: 4s;
 }
 @keyframes fallingLeaves {
   0% {
-  	opacity: 1;
+    opacity: 1;
     transform: translate(0px, -500px) rotateZ(0deg);
   }
   70% {
-  opacity: 1;
+    opacity: 1;
     transform: translate(70px, 200px) rotateZ(190deg);
   }
   100% {
-  opacity: 1;
+    opacity: 1;
     transform: translate(100px, 400px) rotateZ(270deg);
   }
 }
 
-
 .routerworks-container {
-	width: 80%;
-	margin: 5% auto;
+  width: 80%;
+  margin: 5% auto;
 }
-.routerworks-container header, .routerworks-container main {
-	margin: 10px;
-	padding: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.routerworks-container header,
+.routerworks-container main {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .routerworks-container header {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 .routerworks-container main {
-	position: relative;
-	border: 3px dashed #333;
-	min-height: 200px;
+  position: relative;
+  border: 3px dashed #333;
+  min-height: 200px;
 }
 .routerworks-container main > section {
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: calc(100% - 30px);
-	height: calc(100% - 30px);
-	border: 4px solid #333;
-	background: white;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  border: 4px solid #333;
+  background: white;
+  left: 50%;
 }
-.routerworks-container main > section form input, .routerworks-container main > section form button {
-	border: 2px solid black;
-    background: none;
-	margin: 3px;
-	font-size: 1em;
-	padding: 0.4em;
+.routerworks-container main > section form input,
+.routerworks-container main > section form button {
+  border: 2px solid black;
+  background: none;
+  margin: 3px;
+  font-size: 1em;
+  padding: 0.4em;
 }
 .routerworks-container main > section.moviesview {
-	flex-direction: row;
-	flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .routerworks-container main > section.moviesview > section {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-    width: 28%;
-    border: 2px solid black;
-    margin: 2%;
-    height: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28%;
+  border: 2px solid black;
+  margin: 2%;
+  height: 33%;
 }
