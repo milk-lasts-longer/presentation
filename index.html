@@ -3,7 +3,7 @@
 			image="matrix.png"
 			rating="8.7"
 			runtime="136 min"&gt;
-&lt;/movie-tile&gt;</pre></div></div></web-slide><web-slide><h1>We don't want to use</h1><div style="display:flex"><div style="flex:1; padding: 20px;"><img src="images/frameworks/angular.png" style="height: 100px;"><h2>Angular Directives</h2></div><div style="flex:1; padding: 20px;"><img src="images/frameworks/react-simple.png" style="height: 100px;"><h2 style="white-space: nowrap;">React Components</h2></div></div></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/road_bike.png')" class="fullscreen-image-contained"><pre data-enter="1" is="lang-markup">&lt;road-bike&gt;&lt;/road-bike&gt;
+&lt;/movie-tile&gt;</pre></div></div></web-slide><web-slide><h1>We don't want to use</h1><div style="display:flex"><div style="flex:1; padding: 20px;"><img src="images/frameworks/angular.png" style="height: 100px;"><h2>Angular Components</h2></div><div style="flex:1; padding: 20px;"><img src="images/frameworks/react-simple.png" style="height: 100px;"><h2 style="white-space: nowrap;">React Components</h2></div></div></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>Custom Elements</h1></web-slide><web-slide style="background-image:url('images/road_bike.png')" class="fullscreen-image-contained"><pre data-enter="1" is="lang-markup">&lt;road-bike&gt;&lt;/road-bike&gt;
 </pre></web-slide><web-slide style="background-image:url('images/road_bike_parts.png')" data-transition="moveToLeft" class="fullscreen-image-contained"><pre data-enter="1" is="lang-javascript">class RoadBike extends HTMLElement {
   createdCallback() {
       this.innerHTML = `
@@ -57,10 +57,10 @@ oReq.send();
 ]);</pre></div><div class="code-with-label"><h2>Aurelia</h2><pre is="lang-javascript">config.map([
 	{ route: 'search', name: 'search', moduleId: './search' },
 	{ route: 'movies', name: 'movies', moduleId: './movies' }
-]);</pre></div><div class="code-with-label"><h2>Angular 2</h2><pre is="lang-javascript">@RouteConfig([
-	{ path: '/search', name: 'Search', component: SearchViewComponent},
-	{ path: '/movies', name: 'Movies', component: MoviesViewComponent}
-])</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-markup">&lt;Route path=&quot;/search&quot; component={Search}&gt;
+]);</pre></div><div class="code-with-label"><h2>Angular</h2><pre is="lang-javascript">const routes = [
+	{ path: '/search', component: SearchViewComponent },
+	{ path: '/movies', component: MoviesViewComponent }
+];</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-markup">&lt;Route path=&quot;/search&quot; component={Search}&gt;
 &lt;Route path=&quot;/movies&quot; component={Movies}&gt;</pre></div></web-slide><web-slide data-transition="fall" class="lesson-learned"><h1>#2</h1><h2>use standards as much as possible</h2></web-slide><web-slide class="align-left"><h1>Reusable services</h1><div class="code-with-label"><h2>React</h2><pre is="lang-javascript">import MovieApi from './movie-api';
 
 React.createClass({
@@ -73,7 +73,7 @@ React.createClass({
 		return (&lt;div&gt;{this.state.results.length} Results&lt;/div&gt;);
 	}
 });</pre></div></web-slide><web-slide data-transition="fall" class="lesson-learned"><h1>#3</h1><h2>learn to think in components</h2></web-slide><web-slide class="align-left"><h1>Components</h1><div class="code-with-label"><h2>Movie App</h2><pre is="lang-javascript">class HelloComponent extends HTMLElement {}</pre></div><div class="code-with-label"><h2>Aurelia</h2><pre is="lang-javascript">@customElement('hello-component')
-export class HelloComponent {}</pre></div><div class="code-with-label"><h2>Angular 2</h2><pre is="lang-javascript">@Component({
+export class HelloComponent {}</pre></div><div class="code-with-label"><h2>Angular</h2><pre is="lang-javascript">@Component({
 	selector: 'hello-component',
 	template: '<div>Hello {{name}}</div>'
 })
@@ -83,5 +83,5 @@ export class HelloComponent {}</pre></div><div class="code-with-label"><h2>React
 	}
 }</pre></div></web-slide><web-slide data-transition="fall" class="lesson-learned"><h1>#4</h1><h2>learn a standard once, <br> use it everywhere</h2></web-slide><web-slide class="align-left"><h1>ES6 Modules</h1><div class="code-with-label"><h2>Movie App</h2><pre is="lang-javascript">import MoviesView from './movies/movies';
 </pre></div><div class="code-with-label"><h2>Aurelia</h2><pre is="lang-javascript">import {inject} from 'aurelia-framework';
-</pre></div><div class="code-with-label"><h2>Angular 2</h2><pre is="lang-javascript">import {Component} from 'angular2/core';
-</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-javascript">import React from 'react';</pre></div></web-slide><web-slide><h1 style="margin-bottom: 1.3em;">Start learning standards today!</h1><div class="flex"><div class="flex-item"><img src="images/stefan-small.jpg" class="about-us"><h2>Stefan Jäger</h2><span style="font-size:1.4em;"><i class="fa fa-twitter"></i>steivan</span></div><div class="flex-item"><img src="images/chris-small.jpg" class="about-us"><h2>Christian Kohler</h2><span style="font-size:1.4em;"><i class="fa fa-twitter"></i>KohlerChristian</span></div></div></web-slide></web-presentation><script src="//localhost:9091">// livereload</script></body></html>
+</pre></div><div class="code-with-label"><h2>Angular</h2><pre is="lang-javascript">import {Component} from 'angular2/core';
+</pre></div><div class="code-with-label"><h2>React</h2><pre is="lang-javascript">import React from 'react';</pre></div></web-slide><web-slide><h1 style="margin-bottom: 1.3em;">Start learning standards today!</h1><div class="flex"><div class="flex-item"><img src="images/stefan-small.jpg" class="about-us"><h2>Stefan Jäger</h2><span style="font-size:1.4em;"><i class="fa fa-twitter"></i>steivan</span></div><div class="flex-item"><img src="images/chris-small.jpg" class="about-us"><h2>Christian Kohler</h2><span style="font-size:1.4em;"><i class="fa fa-twitter"></i>KohlerChristian</span></div></div></web-slide><web-slide-title style="background-image: url('images/satisfaction_survey.png')" class="fullscreen-image"></web-slide-title></web-presentation><script src="//localhost:9091">// livereload</script></body></html>
